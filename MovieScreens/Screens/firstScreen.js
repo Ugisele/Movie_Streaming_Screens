@@ -1,14 +1,16 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View ,StatusBar} from 'react-native';
 
  const FirstScreen =() => {
   return (
     <View style={styles.container}>
       {/* <Text style={styles.text}>Hello World!</Text> */}
-      <Image source={require('./assets/logo.png')} />
+      <TouchableOpacity>
+       <Image source={require('../assets/logo.png')} />
+      </TouchableOpacity>
+      
   
-      <StatusBar style={{backgroundColor:'#ffffff'}}/>
+      <StatusBar style='light-content'/>
     </View>
   );
 }
