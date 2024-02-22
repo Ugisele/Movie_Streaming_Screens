@@ -1,16 +1,19 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View ,StatusBar} from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View, StatusBar } from 'react-native';
 
- const FirstScreen =() => {
+const FirstScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* <Text style={styles.text}>Hello World!</Text> */}
-      <TouchableOpacity>
-       <Image source={require('../assets/logo.png')} />
+      <TouchableOpacity onPress={() =>
+        navigation.navigate('getstarted')
+      }
+      >
+        <Image source={require('../assets/logo (1).png')} />
       </TouchableOpacity>
-      
-  
-      <StatusBar style='light-content'/>
+
+
+      <StatusBar style='light-content' />
     </View>
   );
 }
@@ -24,8 +27,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  text:{
-    color:'white',
+  text: {
+    color: 'white',
     fontSize: 25,
   }
 });

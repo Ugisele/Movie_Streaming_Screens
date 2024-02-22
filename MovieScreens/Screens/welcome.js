@@ -10,7 +10,7 @@ import { StatusBar,
     ScrollView,
     Image} from 'react-native';
 
-    const Welcome = () =>{
+    const Welcome = ({navigation}) =>{
         return(
             
         <View style={styles.container} >
@@ -25,7 +25,9 @@ import { StatusBar,
                 <Text style={styles.text1}>Welcome to Movie</Text>
                 <Text style={styles.text2}>free movie streming all your needs everytime and everywhere</Text>
             </View>
-             <TouchableOpacity style={styles.btn}>
+             <TouchableOpacity style={styles.btn} onPress={() =>
+        navigation.navigate('signin')
+      }>
                 <Text>Watch movies</Text>
              </TouchableOpacity>
              <TouchableOpacity>

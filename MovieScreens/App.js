@@ -1,17 +1,20 @@
 import React from "react";
+
+import Navigation from "./Screens/navigation";
 import FirstScreen from "./Screens/firstScreen";
-import Started from "./Screens/getStarted";
-import Welcome from "./Screens/welcome";
-import Signin from "./Screens/Signin";
+import { Hhh } from "./Screens/loginwhitlineargradient";
+
+
 
 
 export default function app() {
   return (
 
-    // <FirstScreen/>
-    // <Started />
-    // <Welcome/>
-    <Signin/>
+
+// {/* <Hhh/> */}
+// <FirstScreen/>
+
+<Navigation/> 
 
 
   )
