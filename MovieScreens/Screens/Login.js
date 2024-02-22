@@ -16,9 +16,10 @@ const Login = ({ navigation }) => {
 
                 <View style={{ backgroundColor: "rgba(000,000,000,0.7)", height: "100%" }}>
                     <View style={styles.log}>
-                        <Image source={require('../assets/logo.png')} />
+                        <Image source={require('../assets/logo (1).png')} />
                         <TouchableOpacity>
-                            <Text style={styles.logtext}>Register</Text>
+                            <Text style={styles.logtext} onPress={() =>
+                            navigation.navigate('register')}>Register</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -34,7 +35,7 @@ const Login = ({ navigation }) => {
                             mode="flat"
                             label={'Email'}
                             placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
-                            right={<TextInput.Icon icon={'account'} color='#867f3f' />}
+                            right={<TextInput.Icon icon={'email-outline'} color='#867f3f' />}
 
                         />
                         <Text style={styles.inputext}>Password</Text>
@@ -45,7 +46,7 @@ const Login = ({ navigation }) => {
                             mode="flat"
                             label={'password'}
                             placeholder='*********' placeholderTextColor={'#adaeaf'}
-                            right={<TextInput.Icon icon={'eye'} color='#867f3f' />}
+                            right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}
 
                         />
 
@@ -158,7 +159,8 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 15,
         paddingVertical: 10
-    }, input: {
+    },
+    input: {
         borderWidth: 1,
         borderRadius: 10,
         backgroundColor: 'transparent',
@@ -167,7 +169,6 @@ const styles = StyleSheet.create({
         fontSize: 15,
         paddingVertical: 10,
         color: '#98999c',
-
 
 
     },
@@ -184,10 +185,4 @@ const styles = StyleSheet.create({
         fontSize: 20,
 
     },
-
-
-
-
-
-
 })

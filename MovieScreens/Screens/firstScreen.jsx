@@ -13,7 +13,7 @@ const FirstScreen = ({ navigation }) => {
       </TouchableOpacity>
 
 
-      <StatusBar style='light-content' />
+      <StatusBar style='light' />
     </View>
   );
 }
@@ -23,7 +23,7 @@ export default FirstScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#1f2123',
     alignItems: 'center',
     justifyContent: 'center',
   },
