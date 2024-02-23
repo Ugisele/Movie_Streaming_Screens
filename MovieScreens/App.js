@@ -2,7 +2,7 @@ import React from "react";
 import Navigation from "./Screens/navigation";
 
 
-// import Home from "./Screens/Home";
+import Home from "./Screens/Home";
 
 
 
@@ -11,8 +11,9 @@ import Navigation from "./Screens/navigation";
 export default function App() {
   return (
 
-//* < Home/> */
-<Navigation />
+//< Home/>  
+
+<Navigation /> 
 
   )
 

@@ -8,6 +8,8 @@ import Welcome from "./welcome";
 import Signin from "./Signin";
 import Login from "./Login";
 import Registration from "./Registration";
+import Home from "./Home";
+
 
 
 const Stack = createNativeStackNavigator();
@@ -15,7 +17,7 @@ const Stack = createNativeStackNavigator();
 export default function Navigation(){
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="register">
+            <Stack.Navigator initialRouteName="first">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
@@ -23,6 +25,7 @@ export default function Navigation(){
                 <Stack.Screen name="signin" component={Signin} options={{ headerShown: false }} />
                 <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="register" component={Registration} options={{ headerShown: false }}/>
+                <Stack.Screen name="home" component={Home} options={{ headerShown: false}}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

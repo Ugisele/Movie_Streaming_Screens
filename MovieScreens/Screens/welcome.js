@@ -1,13 +1,10 @@
 import React from 'react';
 import {
     StatusBar,
-    Button,
-    ImageBackground,
     StyleSheet,
     Text,
     View,
     TouchableOpacity,
-
     ScrollView,
     Image
 } from 'react-native';
