@@ -1,21 +1,18 @@
 import React from "react";
-
 import Navigation from "./Screens/navigation";
-import FirstScreen from "./Screens/firstScreen";
-import { Hhh } from "./Screens/loginwhitlineargradient";
+
+
+// import Home from "./Screens/Home";
 
 
 
 
-export default function app() {
+
+export default function App() {
   return (
 
-
-// {/* <Hhh/> */}
-// <FirstScreen/>
-
-<Navigation/> 
-
+//* < Home/> */
+<Navigation />
 
   )
 

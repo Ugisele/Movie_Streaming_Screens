@@ -12,7 +12,7 @@ import Registration from "./Registration";
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = () => {
+export default function Navigation(){
     return (
         <NavigationContainer>
             <Stack.Navigator initialRouteName="register">
@@ -29,4 +29,3 @@ const Navigation = () => {
 };
 
 
-export default Navigation;
