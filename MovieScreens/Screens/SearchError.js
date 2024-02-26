@@ -43,7 +43,7 @@ const SearchError = ({ navigation }) => {
 
                 <View >
                     <Text style={{ fontSize: 25, color: '#dbdddd', fontWeight: '600', color: '#dbdddd' }}>Your Daily mixes</Text>
-                    <ScrollView horizontal={true} contentContainerStyle={{
+                    {/* <ScrollView horizontal={true} contentContainerStyle={{
                         display: 'flex',
                         flexDirection: 'row', gap: 20,
                     }}>
@@ -54,23 +54,26 @@ const SearchError = ({ navigation }) => {
 
                             </View>
                         ))}
-                    </ScrollView>
+                    </ScrollView> */}
                 </View>
 
 
                 <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={() =>
+                            navigation.navigate('home')}>
                         <FontAwesome name='home' size={25} color={'#dbdddd'} />
                     </TouchableOpacity>
 
                     <TouchableOpacity onPress={() =>
                         navigation.navigate('search')}>
-                        <FontAwesome name='search' size={25} color={'#ffce2d'} />
+                        <FontAwesome name='search' size={25} color={'#dbdddd'} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                        <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
+                    <TouchableOpacity onPress={() =>
+                            navigation.navigate('searcherror')}>
+                        <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() =>
+                            navigation.navigate('first')}>
                         <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
                     </TouchableOpacity>
 

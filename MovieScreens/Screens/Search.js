@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
-import { FontAwesome,MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import Gallery, { arrimages } from './components/NewRelease';
 import { Slide } from './components/NewRelease';
 import Popular, { Card } from './components/PopularMV';
@@ -20,16 +20,16 @@ const Search = ({ navigation }) => {
             <ScrollView>
 
                 <View>
-                    <TextInputComponent 
+                    <TextInputComponent
 
-                    
+
                         label="Search"
                         placeholder="Type your suggestion movies or genrle"
                         placeholderTextColor={'#313334'}
                         mode="flat"
                         IconName={() => <MaterialIcons name="search" size={30} color="#93804b" />}
                     />
-                     
+
 
 
                 </View>
@@ -37,7 +37,7 @@ const Search = ({ navigation }) => {
 
 
                 <View>
-                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '600',  }}>Search History</Text>
+                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', }}>Search History</Text>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{
                         display: 'flex', flexDirection: 'row', gap: 10,
                     }}>
@@ -52,9 +52,9 @@ const Search = ({ navigation }) => {
                     </ScrollView>
                 </View>
                 <View>
-                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '600',  }}>Top Search</Text>
+                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', }}>Top Search</Text>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{
-                        display: 'flex', flexDirection: 'row', gap: 10, 
+                        display: 'flex', flexDirection: 'row', gap: 10,
                     }}>
                         {Slide.map((slide, index) => (
                             <View key={index}>
@@ -70,7 +70,7 @@ const Search = ({ navigation }) => {
                     <Text style={{ zIndex: 20, fontSize: 25, color: 'white', fontWeight: '600', }}>Your Daily mixes</Text>
                     <ScrollView contentContainerStyle={{
                         display: 'flex',
-                        flexDirection: 'column', gap: 10, 
+                        flexDirection: 'column', gap: 10,
                     }}>
                         {Card.map((pop, index) => (
 
@@ -84,23 +84,24 @@ const Search = ({ navigation }) => {
             </ScrollView>
 
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
-                <TouchableOpacity >
-                    <FontAwesome name='home' size={25} color={'white'} />
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('home')}>
+                    <FontAwesome name='home' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() =>
-                    navigation.navigate('first')}>
-                    <FontAwesome name='search' size={25}  color={'#ffce2d'} />
+                    navigation.navigate('search')}>
+                    <FontAwesome name='search' size={25} color={'#ffce2d'} />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <FontAwesome name='folder-o' size={25} color={'white'} />
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('searcherror')}>
+                    <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <FontAwesome name='comment-o' size={25} color={'white'} />
+                <TouchableOpacity onPress={() =>
+                            navigation.navigate('first')}>
+                    <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
+                    {/* <AntDesign name='appstore-o' size={25} color={'white'}/> */}
                 </TouchableOpacity>
-
-
-
 
             </View>
 
@@ -114,9 +115,9 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#26282c',
-        paddingHorizontal: 10, 
+        paddingHorizontal: 10,
         paddingVertical: 10
     },
-   
-   
+
+
 });
