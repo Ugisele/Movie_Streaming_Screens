@@ -1,16 +1,15 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import Gallery, { arrimages } from './components/NewRelease';
-import { Slide } from './components/NewRelease';
-import Popular, { Card } from './components/PopularMV';
+import Gallery, { arrimages } from './components/MovieCardComp';
+import { Slide } from './components/MovieCardComp';
+import Popular, { Card } from './components/PopularComp';
+import NewRelease from './fetchApi/NewRelease';
+import PopularMuvi from './fetchApi/Popular';
+import TrendingMuvi from './fetchApi/Trending';
 
 
-
-
-
-
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
     return (
         <View style={styles.container}>
 
@@ -55,67 +54,39 @@ const Home = ({navigation}) => {
                 </View>
                 <View>
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>New Release</Text>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{
-                        display: 'flex', flexDirection: 'row', gap: 10, paddingHorizontal: 10, paddingVertical: 10
-                    }}>
 
-                        {arrimages.map((item, index) => (
-                            <View key={index}>
-                                <Gallery image={item.image} rate={item.rate} />
+                    <TrendingMuvi />
 
-                            </View>
 
-                        ))}
-                    </ScrollView>
                 </View>
                 <View>
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>Made for you</Text>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{
-                        display: 'flex', flexDirection: 'row', gap: 10, paddingHorizontal: 10, paddingVertical: 10
-                    }}>
-                        {Slide.map((slide, index) => (
-                            <View key={index}>
-                                <Gallery image={slide.image} rate={slide.rate} />
-                            </View>
-                        ))}
 
-
-                    </ScrollView>
+                    <NewRelease />
 
                 </View>
                 <View>
                     <Text style={{ zIndex: 20, fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>Popular movies</Text>
-                    <ScrollView contentContainerStyle={{
-                        display: 'flex',
-                        flexDirection: 'column', gap: 10, paddingHorizontal: 10, paddingVertical: 10
-                    }}>
-                        {Card.map((pop, index) => (
-
-                            <View key={index}>
-                                <Popular image={pop.image} title='Best ' />
-
-                            </View>
-                        ))}
-                    </ScrollView>
+                    <PopularMuvi />
                 </View>
             </ScrollView>
 
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('home')}>
+                    navigation.navigate('home')}>
                     <FontAwesome name='home' size={25} color={'#ffce2d'} />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('search')}>
+                    navigation.navigate('search')}>
                     <FontAwesome name='search' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('searcherror')}>
+                    navigation.navigate('searcherror')}>
                     <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('first')}>
+                    navigation.navigate('first')}>
                     <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
 

@@ -1,8 +1,10 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
 import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-import Popular, { Card, PopularError } from './components/PopularMV';
+// import Popular, { Card, PopularError } from './components/PopularMV';
 import TextInputComponent from './components/TextInput';
+import NewRelease from './fetchApi/NewRelease';
+import TrendingMuvi from './fetchApi/Trending';
 
 
 
@@ -15,35 +17,35 @@ const SearchError = ({ navigation }) => {
         <View style={styles.container}>
 
             <StatusBar style='light' />
-            <ScrollView>
-
-                <View style={{ paddingVertical: 15, backgroundColor: '#1f2123' }}>
-                    <TextInputComponent
 
 
-                        label="Search"
-                        placeholder="Type your suggestion movies or genrle"
-                        placeholderTextColor={'#313334'}
-                        mode="flat"
-                        IconName={() => <MaterialIcons name="search" size={30} color="#93804b" />}
-                    />
+            <View style={{ paddingVertical: 15, }}>
+                <TextInputComponent
+
+
+                    label="Search"
+                    placeholder="Type your suggestion movies or genrle"
+                    placeholderTextColor={'#313334'}
+                    mode="flat"
+                    IconName={() => <MaterialIcons name="search" size={30} color="#93804b" />}
+                />
 
 
 
-                </View>
+            </View>
 
-                <View style={{
-                    height: 395, width: '100%', display: 'flex',
-                    justifyContent: 'center', alignItems: 'center'
-                }}>
-                    <Image source={require('../assets/searcherror.png')} style={{ width: 100 }} />
-                    <Text style={{ fontSize: 25, fontWeight: '600', marginTop: 20, color: '#dbdddd' }}>Search any Movie</Text>
-                    <Text style={{ fontSize: 18, marginTop: 10, textAlign: 'center', paddingHorizontal: 10, color: '#7d7e82' }}>Explore our libraries and enjoy this movie with your family</Text>
-                </View>
+            <View style={{
+                height: 355, width: '100%', display: 'flex',
+                justifyContent: 'center', alignItems: 'center'
+            }}>
+                <Image source={require('../assets/searcherror.png')} style={{ width: 100 }} />
+                <Text style={{ fontSize: 25, fontWeight: '600', marginTop: 20, color: '#dbdddd' }}>Search any Movie</Text>
+                <Text style={{ fontSize: 18, marginTop: 10, textAlign: 'center', paddingHorizontal: 10, color: '#7d7e82' }}>Explore our libraries and enjoy this movie with your family</Text>
+            </View>
 
-                <View >
-                    <Text style={{ fontSize: 25, color: '#dbdddd', fontWeight: '600', color: '#dbdddd' }}>Your Daily mixes</Text>
-                    {/* <ScrollView horizontal={true} contentContainerStyle={{
+            <View >
+                <Text style={{ fontSize: 25, color: '#dbdddd', fontWeight: '600', color: '#dbdddd' }}>Your Daily mixes</Text>
+                {/* <ScrollView horizontal={true} contentContainerStyle={{
                         display: 'flex',
                         flexDirection: 'row', gap: 20,
                     }}>
@@ -55,32 +57,35 @@ const SearchError = ({ navigation }) => {
                             </View>
                         ))}
                     </ScrollView> */}
-                </View>
 
 
-                <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginTop: 15 }}>
-                    <TouchableOpacity onPress={() =>
-                            navigation.navigate('home')}>
-                        <FontAwesome name='home' size={25} color={'#dbdddd'} />
-                    </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() =>
-                        navigation.navigate('search')}>
-                        <FontAwesome name='search' size={25} color={'#dbdddd'} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>
-                            navigation.navigate('searcherror')}>
-                        <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() =>
-                            navigation.navigate('first')}>
-                        <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
-                    </TouchableOpacity>
-
-                </View>
+                <TrendingMuvi />
+            </View>
 
 
-            </ScrollView>
+            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginTop: 10 }}>
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('home')}>
+                    <FontAwesome name='home' size={25} color={'#dbdddd'} />
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('search')}>
+                    <FontAwesome name='search' size={25} color={'#dbdddd'} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('searcherror')}>
+                    <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() =>
+                    navigation.navigate('first')}>
+                    <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
+                </TouchableOpacity>
+
+            </View>
+
+
+
         </View>
 
     )
