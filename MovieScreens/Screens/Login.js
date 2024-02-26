@@ -110,11 +110,6 @@ const styles = StyleSheet.create({
         resizeMode: "cover",
     },
     Login: {
-        // alignContent:'center',
-        // flexDirection:'column',
-        // justifyContent: 'flex-end',
-        // alignContent: 'flex-end',
-        // backgroundColor: 'rgba(0,0,0,0.7)',
         position: 'absolute',
         // height: 305,
         width: '100%',

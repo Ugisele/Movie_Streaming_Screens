@@ -4,7 +4,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import Gallery, { arrimages } from './components/NewRelease';
 import { Slide } from './components/NewRelease';
 import Popular, { Card } from './components/PopularMV';
-// import Navigation from './navigation';
+
 
 
 
@@ -102,7 +102,7 @@ const Home = ({navigation}) => {
 
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('first')}>
+                            navigation.navigate('search')}>
                     <FontAwesome name='home' size={25} color={'#ffce2d'} />
                 </TouchableOpacity>
 

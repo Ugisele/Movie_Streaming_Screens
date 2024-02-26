@@ -9,6 +9,8 @@ import Signin from "./Signin";
 import Login from "./Login";
 import Registration from "./Registration";
 import Home from "./Home";
+import Search from "./Search";
+import SearchError from "./SearchError";
 
 
 
@@ -17,7 +19,7 @@ const Stack = createNativeStackNavigator();
 export default function Navigation(){
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="first">
+            <Stack.Navigator initialRouteName="search">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
@@ -26,6 +28,8 @@ export default function Navigation(){
                 <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="register" component={Registration} options={{ headerShown: false }}/>
                 <Stack.Screen name="home" component={Home} options={{ headerShown: false}}/>
+                <Stack.Screen name="search" component={Search} options={{ headerShown: false }}/>
+                <Stack.Screen name="searcherror" component={SearchError} options={{ headerShown: false }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );
