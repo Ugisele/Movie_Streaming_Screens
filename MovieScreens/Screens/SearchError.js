@@ -17,7 +17,7 @@ const SearchError = ({ navigation }) => {
         <View style={styles.container}>
 
             <StatusBar style='light' />
-
+            <ScrollView>
 
             <View style={{ paddingVertical: 15, }}>
                 <TextInputComponent
@@ -78,11 +78,17 @@ const SearchError = ({ navigation }) => {
                     <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
-                    navigation.navigate('first')}>
+                    navigation.navigate('list')}>
                     <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
 
             </View>
+
+
+            </ScrollView>
+
+
+           
 
 
 
