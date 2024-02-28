@@ -20,10 +20,10 @@ const Button = ({title})=>{
         alignItems: 'center',
         borderRadius: 10,
         top:2
-        // marginLeft: 4,
     },
     btntext: {
         fontSize: 20,
+        fontWeight:'bold'
 
     },
 

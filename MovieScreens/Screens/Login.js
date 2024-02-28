@@ -103,7 +103,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: '#9f8a41',
 
-
     },
     image: {
         // flex: 1,
@@ -143,6 +142,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10
 
     },
+    
     text1: {
         color: 'white',
         fontSize: 15,

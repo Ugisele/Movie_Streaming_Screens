@@ -20,6 +20,7 @@ export default function App() {
     <>
       <StatusBar style='auto' />
 
+      
       {/* <ActivityIndicator
       animating={true}
       color="blue"
@@ -31,6 +32,7 @@ export default function App() {
       {/* < Home /> */}
 
       <Navigation /> 
+      
       
       {/* <List/> */}
 
