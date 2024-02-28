@@ -13,32 +13,34 @@ import List from "./Screens/myList";
 
 
 
+
+
 export default function App() {
   return (
     <>
       <StatusBar style='auto' />
 
-      <ActivityIndicator
+      {/* <ActivityIndicator
       animating={true}
       color="blue"
-      />
+      /> */}
       {/*  */}
+
+      {/* <CurrencyConverter/> */}
+      
       {/* < Home /> */}
 
-      <Navigation />
+      <Navigation /> 
       
       {/* <List/> */}
 
-      {/* <MyFetch/>
- */}
-
-
+      {/* <MyFetch/>*/}
 
       {/* //<Search/> */}
+
       {/* <SearchError/>  */}
 
     </>
-
 
   )
 

@@ -8,6 +8,7 @@ import {
     ScrollView,
     Image
 } from 'react-native';
+import Button from './components/button';
 
 const Welcome = ({ navigation }) => {
     return (
@@ -24,10 +25,11 @@ const Welcome = ({ navigation }) => {
                 <Text style={styles.text1}>Welcome to Movie</Text>
                 <Text style={styles.text2}>free movie streming all your needs everytime and everywhere</Text>
             </View>
-            <TouchableOpacity style={styles.btn} onPress={() =>
+            <TouchableOpacity  onPress={() =>
                 navigation.navigate('signin')
             }>
-                <Text>Watch movies</Text>
+               <Button title={'Watch movie'}/>
+
             </TouchableOpacity>
             <TouchableOpacity onPress={() =>
                 navigation.navigate('login')
@@ -45,7 +47,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#26282c',
-        // paddingHorizontal: 10,
+        paddingHorizontal: 10,
         // paddingVertical: 10       
     },
     logo: {
@@ -71,18 +73,9 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#D9D9DA',
         textAlign: 'center',
-        marginBottom: 80
+        marginBottom: 60
     },
-    btn: {
-        backgroundColor: '#fdd130',
-        width: '97%',
-        height: 40,
-        marginBottom: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginLeft: 4,
-    },
+  
 
 
 })

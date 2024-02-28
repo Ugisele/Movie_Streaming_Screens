@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
+import Button from './components/button';
 
 
 const Signin = ({ navigation }) => {
@@ -32,7 +33,7 @@ const Signin = ({ navigation }) => {
             <TouchableOpacity style={styles.btn} onPress={() =>
                 navigation.navigate('register')
             }>
-                <Text style={styles.btntext}>Sign in</Text>
+                <Button title={'Sign in'} />
             </TouchableOpacity>
 
             <Text style={styles.or}>Or sign in with</Text>
@@ -56,12 +57,10 @@ const Signin = ({ navigation }) => {
 
             </View>
 
-
-
             <View style={styles.signup}>
                 <Text style={styles.signuptext1}>Don't have any account ?</Text>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('register')}>
+                    navigation.navigate('register')}>
                     <Text style={styles.signuptext}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
@@ -78,7 +77,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#1f2123',
-        paddingHorizontal: 15,
+        paddingHorizontal: 10,
         paddingVertical: 40,
         // justifyContent: 'center',
 
@@ -107,19 +106,6 @@ const styles = StyleSheet.create({
 
     },
 
-    btn: {
-        backgroundColor: '#fdd130',
-        height: 40,
-        marginBottom: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        marginLeft: 4,
-    },
-    btntext: {
-        fontSize: 20,
-
-    },
     or: {
         fontSize: 15,
         paddingVertical: 10,

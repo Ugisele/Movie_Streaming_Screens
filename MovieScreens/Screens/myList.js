@@ -5,6 +5,7 @@ import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import TextInputComponent from './components/TextInput';
 import NewRelease from './fetchApi/NewRelease';
 import TrendingMuvi from './fetchApi/Trending';
+import Button from './components/button';
 
 
 
@@ -30,14 +31,14 @@ const List = ({ navigation }) => {
             }}>
                 <Image source={require('../assets/list.png')} style={{ width: 100 }} />
                 <Text style={{ fontSize: 25, fontWeight: '600', marginTop: 20, color: '#dbdddd' }}>Create my own list</Text>
-                <Text style={{ fontSize: 18, marginTop: 10, textAlign: 'center', paddingHorizontal: 10, color: '#7d7e82' }}>Explore our libraries and enjoy this movie with your family</Text>
+                <Text style={{ fontSize: 18, marginTop: 10, textAlign: 'center', paddingHorizontal: 5, color: '#7d7e82' }}>Explore our libraries and enjoy this movie with your family</Text>
             </View>
             </ScrollView>
 
             <TouchableOpacity style={styles.btn} onPress={() =>
                 navigation.navigate('first')
             }>
-                <Text style={styles.btntext}>Explore Movie</Text>
+                <Button title='Explore Movie'/>
             </TouchableOpacity>
             </View>
     )}
@@ -50,19 +51,6 @@ const List = ({ navigation }) => {
             backgroundColor: '#26282c',
             paddingHorizontal: 10,
             paddingVertical: 0,
-        },
-        btn: {
-            backgroundColor: '#fdd130',
-            height: 40,
-            marginBottom: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: 10,
-            marginLeft: 4,
-        },
-        btntext: {
-            fontSize: 20,
-    
         },
     
     

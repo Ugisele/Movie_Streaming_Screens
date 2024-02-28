@@ -5,6 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { AntDesign } from 'react-native-vector-icons/AntDesign';
 import { colors } from 'react-native-elements';
 import { IconButton } from 'react-native-paper'
+import Button from './components/button';
 
 const Login = ({ navigation }) => {
     return (
@@ -72,7 +73,7 @@ const Login = ({ navigation }) => {
 
                         <TouchableOpacity style={styles.btn} onPress={() =>
                             navigation.navigate('home')}>
-                            <Text style={styles.btntext}>Login in</Text>
+                           <Button title={'Login'}/>
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -111,9 +112,8 @@ const styles = StyleSheet.create({
     },
     Login: {
         position: 'absolute',
-        // height: 305,
         width: '100%',
-        paddingHorizontal: 13,
+        // paddingHorizontal: 10,
         paddingVertical: 300,
         // borderRadius: 40,
     },
@@ -143,10 +143,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10
 
     },
-    // icon:{
-    //     borderRadius: 50,
-    //     borderWidth: 1
-    // },
     text1: {
         color: 'white',
         fontSize: 15,
@@ -162,19 +158,6 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         color: '#98999c',
 
-
-    },
-    btn: {
-        backgroundColor: '#fdd130',
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-
-
-    },
-    btntext: {
-        fontSize: 20,
 
     },
 })

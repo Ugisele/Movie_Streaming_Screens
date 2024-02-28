@@ -1,5 +1,7 @@
 import React from 'react';
-import { StatusBar, Button, ImageBackground, StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import { StatusBar, ImageBackground, StyleSheet, Text, View,
+     TouchableOpacity, ScrollView } from 'react-native';
+import Button from './components/button';
 
 
 const Started = ({ navigation }) => {
@@ -23,10 +25,11 @@ const Started = ({ navigation }) => {
 
             </ImageBackground>
 
-            <TouchableOpacity style={styles.btn} onPress={() =>
+            <TouchableOpacity  onPress={() =>
                 navigation.navigate('welcome')
             } >
-                <Text style={styles.btntext}>Get Started</Text>
+            
+            <Button title='Get Started'/>
             </TouchableOpacity>
 
             <StatusBar style='light-content' />
@@ -65,19 +68,4 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: 'white',
     },
-    btn: {
-        backgroundColor: '#fdd130',
-        width: '99%',
-        height: 40,
-        justifyContent: 'center',
-        alignContent: 'center',
-        borderRadius: 10
-    },
-    btntext: {
-        fontSize: 18,
-        textAlign: 'center',
-
-
-    }
-
 })

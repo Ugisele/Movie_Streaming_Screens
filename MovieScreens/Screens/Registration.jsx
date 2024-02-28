@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
+import Button from './components/button';
 
 
 const Registration = ({ navigation }) => {
@@ -36,14 +37,17 @@ const Registration = ({ navigation }) => {
                 placeholder='confirm password' placeholderTextColor={'#adaeaf'}
                 right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
-
             />
 
-            <TouchableOpacity style={styles.btn} onPress={() =>
-                navigation.navigate('login')
-            }>
-                <Text style={styles.btntext}>Sign Up</Text>
+            <TouchableOpacity onPress={() =>
+                            navigation.navigate('login')}>
+
+            <Button title='sign up' />
+
             </TouchableOpacity>
+
+            
+
             <View style={{ flexDirection: 'row', gap: 2 }}>
                 <Text style={{ fontSize: 15, color: '#98999c' }}>By sign up you agree with</Text>
                 <Text style={{ fontSize: 15, color: '#7c6537' }}>Term to use</Text>
@@ -112,20 +116,7 @@ const styles = StyleSheet.create({
 
     },
 
-    btn: {
-        backgroundColor: '#fdd130',
-        height: 50,
-        marginBottom: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 10,
-        top:20
-        // marginLeft: 4,
-    },
-    btntext: {
-        fontSize: 20,
-
-    },
+   
     or: {
         fontSize: 15,
         paddingVertical: 15,
