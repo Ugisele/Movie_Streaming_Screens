@@ -10,6 +10,8 @@ import { StatusBar } from "react-native";
 import HorizontalCard from "./Screens/fetchApi/NewRelease";
 import { ActivityIndicator } from "react-native-paper";
 import List from "./Screens/myList";
+import Action from "./Screens/Action";
+
 
 
 
@@ -20,7 +22,7 @@ export default function App() {
     <>
       <StatusBar style='auto' />
 
-      
+
       {/* <ActivityIndicator
       animating={true}
       color="blue"
@@ -28,12 +30,14 @@ export default function App() {
       {/*  */}
 
       {/* <CurrencyConverter/> */}
-      
+
       {/* < Home /> */}
 
       <Navigation /> 
-      
-      
+
+      {/* <Action /> */}
+
+
       {/* <List/> */}
 
       {/* <MyFetch/>*/}

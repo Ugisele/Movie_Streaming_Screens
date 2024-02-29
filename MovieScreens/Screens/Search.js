@@ -71,7 +71,7 @@ const Search = ({ navigation }) => {
                     <FontAwesome name='search' size={25} color={'#ffce2d'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
-                    navigation.navigate('searcherror')}>
+                    navigation.navigate('action')}>
                     <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>

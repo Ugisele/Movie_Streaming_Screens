@@ -36,7 +36,7 @@ const List = ({ navigation }) => {
             </ScrollView>
 
             <TouchableOpacity style={styles.btn} onPress={() =>
-                navigation.navigate('first')
+                navigation.navigate('action')
             }>
                 <Button title='Explore Movie'/>
             </TouchableOpacity>

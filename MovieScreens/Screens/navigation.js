@@ -12,6 +12,8 @@ import Home from "./Home";
 import Search from "./Search";
 import SearchError from "./SearchError";
 import List from "./myList";
+import Action from "./Action";
+
 
 
 
@@ -33,6 +35,7 @@ export default function Navigation(){
                 <Stack.Screen name="search" component={Search} options={{ headerShown: false }}/>
                 <Stack.Screen name="searcherror" component={SearchError} options={{ headerShown: false }}/>
                 <Stack.Screen name="list" component={List} options={{headerShown: false}}/>
+                <Stack.Screen name="action" component={Action} options={{headerShown: false}}/>
 
             </Stack.Navigator>
         </NavigationContainer>
