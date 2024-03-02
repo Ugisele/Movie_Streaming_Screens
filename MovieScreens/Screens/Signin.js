@@ -1,11 +1,11 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { StatusBar, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
 import Button from './components/button';
 
 const Signin = ({ navigation }) => {
-    
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
@@ -38,6 +38,7 @@ const Signin = ({ navigation }) => {
     const handleSubmit = () => {
         if (validateForm()) {
             // Perform form submission
+
         }
     }
     const isValidEmail = (email) => {
@@ -45,16 +46,18 @@ const Signin = ({ navigation }) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return emailRegex.test(email)
     }
-   const onPress = () => {(
-    navigation.navigate('register'),
-    handleSubmit ('')
-   )}  
-return (
-     <View style={styles.container}>
-        <View style={styles.input}></View>
-      <Text style={{ fontSize: 20 }}></Text>
-     <TextInput
-            style={styles.input}
+    const onPress = () => {
+        (
+            navigation.navigate('register'),
+            handleSubmit('')
+        )
+    }
+    return (
+        <View style={styles.container}>
+            <View style={styles.input}></View>
+            <Text style={{ fontSize: 20 }}></Text>
+            <TextInput
+                style={styles.input}
                 mode='outlined'
                 label="Email"
                 autoCompleteType="email"
@@ -63,12 +66,12 @@ return (
                 textColor='#e1e3e6'
                 onChangeText={setEmail}
                 error={!!emailError}
-                left={<TextInput.Icon icon={'email-outline'} color='#e1e3e6'/>}
-                right={<TextInput.Icon icon={'check'} color='#e1e3e6'/>}
+                left={<TextInput.Icon icon={'email-outline'} color='#e1e3e6' />}
+                right={<TextInput.Icon icon={'check'} color='#e1e3e6' />}
             />
             {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
             <TextInput
-            style={styles.input}
+                style={styles.input}
                 mode='outlined'
                 label="Password"
                 textColor='#e1e3e6'
@@ -76,11 +79,11 @@ return (
                 value={password}
                 onChangeText={setPassword}
                 error={!!passwordError}
-                left={<TextInput.Icon icon={'lock-outline'} color='#e1e3e6'/>}
-                right={<TextInput.Icon icon={'eye'} color='#e1e3e6'/>}
+                left={<TextInput.Icon icon={'lock-outline'} color='#e1e3e6' />}
+                right={<TextInput.Icon icon={'eye'} color='#e1e3e6' />}
             />
             {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
-            <View style={{ height: 10 }}></View>
+            {/* <View style={{ height: 10 }}></View> */}
             {/* <Button title='Submit' onPress={handleSubmit} /> */}
 
             {/* <Text onPress={handleSubmit} style={{color:"white"}}>Submit </Text>         */}
@@ -106,8 +109,8 @@ return (
                 <TextInput style={styles.input}
 
                     mode="flat"
-                    placeholder='Watch movie' 
-                    placeholderTextColor={'#adaeaf'} 
+                    placeholder='Watch movie'
+                    placeholderTextColor={'#adaeaf'}
                     placeholderTextStyle={{ 'textAlign': 'center' }}
                     left={<TextInput.Icon icon={'facebook'} color='#e1e3e6' />}
                 />
@@ -159,7 +162,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 10,
         backgroundColor: 'transparent',
-        color:'white',
+        color: 'white',
     },
     inputext: {
         fontSize: 15,
