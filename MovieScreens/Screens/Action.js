@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View, ImageBackground, Text, TouchableOpacity, Image, StyleSheet, Dimensions, SafeAreaView, ScrollView } from "react-native";
+import { View, ImageBackground, Text, TouchableOpacity, StyleSheet, Dimensions, SafeAreaView, ScrollView } from "react-native";
 import { AntDesign, Feather, FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import NewRelease from './fetchApi/NewRelease';
@@ -73,7 +73,7 @@ const Action = ({ navigation }) => {
                                     <FontAwesome name='search' size={25} color={'#dbdddd'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>
-                                    navigation.navigate('searcherror')}>
+                                    navigation.navigate('action')}>
                                     <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>

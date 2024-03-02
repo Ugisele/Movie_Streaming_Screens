@@ -11,6 +11,7 @@ import HorizontalCard from "./Screens/fetchApi/NewRelease";
 import { ActivityIndicator } from "react-native-paper";
 import List from "./Screens/myList";
 import Action from "./Screens/Action";
+import InputText from "./Screens/components/validation";
 
 
 
@@ -27,13 +28,17 @@ export default function App() {
       animating={true}
       color="blue"
       /> */}
+
+
       {/*  */}
 
       {/* <CurrencyConverter/> */}
 
       {/* < Home /> */}
 
-      <Navigation /> 
+      {/* <Navigation /> 
+       */}
+       <InputText/>
 
       {/* <Action /> */}
 

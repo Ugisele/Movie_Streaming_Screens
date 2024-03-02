@@ -24,7 +24,6 @@ export default function InputText() {
         } else {
             setEmailError('')
         }
-
         // Validate password
         if (!password.trim()) {
             setPasswordError('Password is required')
@@ -42,41 +41,39 @@ export default function InputText() {
             console.log('Form submitted:', email, password)
         }
     }
-
     const isValidEmail = (email) => {
         // Basic email validation regex
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return emailRegex.test(email)
     }
-
-    return (
-        <View style={styles.container}>
-            <View style={{ height: 100 }}></View>
-            <Text style={{ fontSize: 20 }}></Text>
-            <TextInput
-                style={{ color: 'white' }}
-                mode='outlined'
-                label="Email"
-                autoCompleteType="email"
-                autoCorrect={false}
-                value={email}
-                onChangeText={setEmail}
-                error={!!emailError}
-            />
-            {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
-            <TextInput
-                mode='outlined'
-                label="Password"
-                secureTextEntry={true}
-                value={password}
-                onChangeText={setPassword}
-                error={!!passwordError}
-            />
-            {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
-            <View style={{ height: 10 }}></View>
-            <Button title='Submit' onPress={handleSubmit} />
-        </View>
-    )
+    // return (
+    //     // <View style={styles.container}>
+    //     //     <View style={{ height: 100 }}></View>
+    //     //     <Text style={{ fontSize: 20 }}></Text>
+    //     //     <TextInput
+    //     //         style={{ color: 'white' }}
+    //     //         mode='outlined'
+    //     //         label="Email"
+    //     //         autoCompleteType="email"
+    //     //         autoCorrect={false}
+    //     //         value={email}
+    //     //         onChangeText={setEmail}
+    //     //         error={!!emailError}
+    //     //     />
+    //     //     {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
+    //     //     <TextInput
+    //     //         mode='outlined'
+    //     //         label="Password"
+    //     //         secureTextEntry={true}
+    //     //         value={password}
+    //     //         onChangeText={setPassword}
+    //     //         error={!!passwordError}
+    //     //     />
+    //     //     {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
+    //     //     <View style={{ height: 10 }}></View>
+    //     //     <Button title='Submit' onPress={handleSubmit} />
+    //     // </View>
+    // )
 }
 
 const styles = StyleSheet.create({

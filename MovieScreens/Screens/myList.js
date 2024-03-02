@@ -1,15 +1,6 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
-import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
-// import Popular, { Card, PopularError } from './components/PopularMV';
-import TextInputComponent from './components/TextInput';
-import NewRelease from './fetchApi/NewRelease';
-import TrendingMuvi from './fetchApi/Trending';
 import Button from './components/button';
-
-
-
-
 
 
 

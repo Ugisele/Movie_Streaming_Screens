@@ -13,6 +13,8 @@ const TextInputComponent = ({ label, placeholder, mode, IconName, placeholderTex
                 placeholderTextColor={placeholderTextColor}
                 mode={mode}
                 right={<TextInput.Icon icon={IconName}/>}
+                left={<TextInput.Icon icon={IconName}/>}
+                value=''
 
             />
         </View>
