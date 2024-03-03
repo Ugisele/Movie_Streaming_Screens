@@ -5,6 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import NewRelease from './fetchApi/NewRelease';
 import Trending from "./components/trendingComp";
 import Navigation from "./navigation";
+import TrendingMuvi from "./fetchApi/Trending";
 
 
 
@@ -58,7 +59,7 @@ const Action = ({ navigation }) => {
                                 <NewRelease />
                             </View>
                             <View>
-                                <Trending />
+                                <TrendingMuvi />
 
                             </View>
                             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent: 'center', marginBottom: 1, marginTop: 5 }}>

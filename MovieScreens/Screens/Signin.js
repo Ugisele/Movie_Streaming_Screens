@@ -4,6 +4,8 @@ import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
 import Button from './components/button';
 
+// import { createMaterialBottomTabNavigator } from 'react-native-paper/lib/typescript/react-navigation';
+
 const Signin = ({ navigation }) => {
 
     const [email, setEmail] = useState('')
