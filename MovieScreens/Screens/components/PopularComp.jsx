@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, ImageBackground } from "react-native";
+import { View, Text, Image, ImageBackground, TouchableOpacity } from "react-native";
 
 // export const Card = [
 //     {
@@ -23,9 +23,15 @@ import { View, Text, Image, ImageBackground } from "react-native";
 const Popular = ({ image, title }) => {
     return (
         <View>
-            {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: '90%', height: 220, borderRadius: 10, marginBottom: 10, }} /> */}
+            <TouchableOpacity>
+
             <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}>{title}</Text>
             <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 370, height: 600, marginBottom: 10 }} />
+            
+
+            </TouchableOpacity>
+            {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: '90%', height: 220, borderRadius: 10, marginBottom: 10, }} /> */}
+            
 
         </View>
     )

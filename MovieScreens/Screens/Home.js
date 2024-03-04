@@ -1,12 +1,10 @@
 import React from 'react';
 import { ScrollView, View, StyleSheet, Image, TouchableOpacity, Text, StatusBar } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-import Gallery, { arrimages } from './components/MovieCardComp';
-import { Slide } from './components/MovieCardComp';
-import Popular, { Card } from './components/PopularComp';
+import { FontAwesome,Feather } from '@expo/vector-icons';
 import NewRelease from './fetchApi/NewRelease';
 import PopularMuvi from './fetchApi/Popular';
 import TrendingMuvi from './fetchApi/Trending';
+import { BottomTabNav } from './navigation';
 
 
 const Home = ({ navigation }) => {
@@ -53,9 +51,12 @@ const Home = ({ navigation }) => {
                     </ScrollView>
                 </View>
                 <View>
+
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>New Release</Text>
+                    
 
                     <TrendingMuvi />
+                   
 
 
                 </View>
@@ -90,8 +91,11 @@ const Home = ({ navigation }) => {
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('first')}>
-                    <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
-                </TouchableOpacity>
+                    <Feather name='grid' size={25} color={'#dbdddd'} />
+                </TouchableOpacity> 
+
+
+                {/* <BottomTabNav/> */}
 
 
 

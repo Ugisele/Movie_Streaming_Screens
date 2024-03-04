@@ -37,7 +37,7 @@ export default function App() {
 
       {/* < Home /> */}
 
-      <Navigation /> 
+      <Navigation />  
        
        {/* <InputText/>
         */}
@@ -51,7 +51,7 @@ export default function App() {
 
       {/* <MyFetch/>*/}
 
-      {/* //<Search/> */}
+    {/* <Search/> */}
 
       {/* <SearchError/>  */}
 

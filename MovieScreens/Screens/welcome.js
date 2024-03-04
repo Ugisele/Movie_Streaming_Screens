@@ -26,7 +26,7 @@ const Welcome = ({ navigation }) => {
                 <Text style={styles.text2}>free movie streming all your needs everytime and everywhere</Text>
             </View>
             <TouchableOpacity  onPress={() =>
-                navigation.navigate('signin')
+                navigation.navigate('login')
             }>
                <Button title={'Watch movie'}/>
 
