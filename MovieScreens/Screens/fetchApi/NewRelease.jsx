@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, View, Text } from 'react-native';
-import Gallery from '../components/MovieCardComp';
+import { FlatList, View, Text, TouchableOpacity } from 'react-native';
+import Gallery from '../components/GalleryComp';
 import axios from 'axios';
 
 export default function NewRelease() {
-  const [search, setSearch] = useState([]);
-  const [searchData, setSearchData] = useState('')
+  // const [search, setSearch] = useState([]);
+  // const [searchData, setSearchData] = useState('')
   const options = {
     method: 'GET',
     headers: {
@@ -23,8 +23,8 @@ export default function NewRelease() {
 
   })
 
- 
-  const [img, myGallery, rate] = useState([])
+
+  const [img, myGallery] = useState([])
 
   return (
 
@@ -43,7 +43,12 @@ export default function NewRelease() {
           const item = post.item
           return (
 
-            <Gallery image={item.poster_path} rate={item.original_title} />
+            <TouchableOpacity>
+              
+               <Gallery image={item.poster_path} rate={item.original_title} />
+
+            </TouchableOpacity>
+           
           )
         }
         }

@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { FlatList, View, Text } from 'react-native';
-import Gallery from '../components/MovieCardComp';
+import Gallery from '../components/GalleryComp';
 import Popular from '../components/PopularComp';
 
-
-
-
 export default function PopularMuvi() {
-    const options = {
+    const handling = {
         method: 'GET',
         headers: {
             accept: 'application/json',
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTJhZjJmZjIxZGI4OTg1NjU4MDU2YTBlN2I2YjU3MiIsInN1YiI6IjY1ZDg2YzI4MTQ5NTY1MDE3YmY2MDRiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LAl2DLnebn0Nk4yh1Gh7kZhOsK4BdJlzeBoNHWcZhrE'
         }
     };
-
-    fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+    fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', handling)
         .then(response => response.json())
         .then(response => myGallery(response.results))
         .catch(err => console.error(err));
 
     useEffect(() => {
-
     })
 
     const [img, myGallery, rate] = useState([])
@@ -47,10 +42,8 @@ export default function PopularMuvi() {
                     )
                 }
                 }
-
             />
         </View>
     )
-
 }
 

@@ -2,7 +2,7 @@ import React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome,Feather } from '@expo/vector-icons'
+import { FontAwesome, Feather } from '@expo/vector-icons'
 
 import FirstScreen from "./firstScreen";
 import Started from "./getStarted";
@@ -16,10 +16,10 @@ import SearchError from "./SearchError";
 import List from "./myList";
 import Action from "./Action";
 import { color } from "react-native-elements/dist/helpers";
-
-
-
-
+import NewRelease from "./fetchApi/NewRelease";
+import Gallery from "./components/GalleryComp";
+import Trending from "./components/trendingComp";
+import Popular from "./components/PopularComp";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()
@@ -37,9 +37,13 @@ export default function Navigation() {
                 <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
                 <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
                 <Stack.Screen name="search" component={Search} options={{ headerShown: false }} />
-                <Stack.Screen name="searcherror" component={SearchError} options={{ headerShown: false }} />
+                {/* <Stack.Screen name="searcherror" component={SearchError} options={{ headerShown: false }} /> */}
                 <Stack.Screen name="list" component={List} options={{ headerShown: false }} />
                 <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
+                <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
+                <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
+                <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} />
+
 
             </Stack.Navigator>
         </NavigationContainer>
@@ -49,7 +53,7 @@ export default function Navigation() {
 export const BottomTabNav = () => {
 
     return (
-        <Tab.Navigation>
+        <Tab.Navigator>
             <Tab.Screen
                 name="hometab"
                 component={Home}
@@ -57,21 +61,21 @@ export const BottomTabNav = () => {
                     <FontAwesome name="home" size={size} color={color} />
                 )}
             />
-             <Tab.Screen
+            <Tab.Screen
                 name="searchtab"
                 component={Search}
                 tabBarIcon={({ color, size }) => (
                     <FontAwesome name="home" size={size} color={color} />
                 )}
             />
-             <Tab.Screen
+            <Tab.Screen
                 name="actiontab"
                 component={Action}
                 tabBarIcon={({ color, size }) => (
                     <FontAwesome name="home" size={size} color={color} />
                 )}
             />
-             <Tab.Screen
+            <Tab.Screen
                 name="listtab"
                 component={List}
                 tabBarIcon={({ color, size }) => (
@@ -80,7 +84,7 @@ export const BottomTabNav = () => {
             />
 
 
-        </Tab.Navigation>
+        </Tab.Navigator>
 
 
     )

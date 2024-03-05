@@ -45,6 +45,7 @@ const Login = ({ navigation }) => {
                             underlineColor='black'
                             secureTextEntry
                             mode="flat"
+                            textColor='#e1e3e6'
                             label={'password'}
                             placeholder='*********' placeholderTextColor={'#adaeaf'}
                             right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}

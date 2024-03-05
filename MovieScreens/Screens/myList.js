@@ -43,6 +43,4 @@ const List = ({ navigation }) => {
             paddingHorizontal: 10,
             paddingVertical: 0,
         },
-    
-    
     });

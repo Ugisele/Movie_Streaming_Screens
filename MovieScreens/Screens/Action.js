@@ -1,28 +1,66 @@
-import * as React from "react";
-import { View, ImageBackground, Text, TouchableOpacity, StyleSheet, Dimensions, SafeAreaView, ScrollView } from "react-native";
+import React , {useEffect ,useState} from "react";
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, SafeAreaView, ScrollView } from "react-native";
 import { AntDesign, Feather, FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import NewRelease from './fetchApi/NewRelease';
 import Trending from "./components/trendingComp";
 import Navigation from "./navigation";
 import TrendingMuvi from "./fetchApi/Trending";
-
-
-
-
-
+import YoutubePlayer from'react-native-youtube-iframe'
 
 const height = Dimensions.get("screen")
 const width = Dimensions.get("screen")
 
-const Action = ({ navigation }) => {
+const Action = ({ navigation, route }) => {
+    console.log(route);
+
+    const rout = route.params
+
+    const [isPlaying,setIsPlaying]= useState([])
+
+    useEffect(() => {
+        HandleVideo()
+    })
+
+    const HandleVideo =() =>{
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxOTJhZjJmZjIxZGI4OTg1NjU4MDU2YTBlN2I2YjU3MiIsInN1YiI6IjY1ZDg2YzI4MTQ5NTY1MDE3YmY2MDRiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LAl2DLnebn0Nk4yh1Gh7kZhOsK4BdJlzeBoNHWcZhrE'
+            }
+        };
+
+        fetch(
+            `https://api.themoviedb.org/3/movie/${rout.id}/videos?language=en-US`,
+            options
+          )
+            .then((response) => response.json())
+            .then((response) => {
+              if (response.results && response.results.length > 0) {
+                setIsPlaying(response.results[0].key);
+              } else {
+                console.error("No video key found in the API response");
+              }
+            })
+            .catch((err) => console.error(err));
+        };
+      
+    
 
     return (
         <View style={{ display: 'flex', height: height, width: width, }}>
-            <SafeAreaView>
+            <YoutubePlayer
+                        height={225}
+                        videoId={isPlaying}
+            />
+            
                 <ScrollView>
+
                     <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
-                        <ImageBackground source={require('../assets/home/no.jpg')} style={styles.image} />
+
+
+                        {/* <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w500${rout.poster_path}` }} style={styles.image} /> */}
                         <TouchableOpacity style={{ paddingVertical: 15, display: 'flex', flexDirection: 'row', gap: 10, position: 'absolute' }} >
 
                             <AntDesign name="arrowleft" size={30} color="#d5b445" />
@@ -34,9 +72,9 @@ const Action = ({ navigation }) => {
                     <LinearGradient colors={['#222428', '#26282b', '#26282b']} >
 
 
-                        <View style={{ paddingVertical: 15, paddingHorizontal: 10 }}>
-                            <Text style={{ color: '#d5d2d1', fontSize: 20, fontWeight: 'bold', }}>No way up: New Trailer</Text>
-                            <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10 }}>The plane was down without a way up,plane was down without a way up,</Text>
+                        <View style={{ paddingVertical: 1, paddingHorizontal: 10 }}>
+                            <Text style={{ color: '#d5d2d1', fontSize: 20, fontWeight: 'bold', }}>{rout.title}</Text>
+                            <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10 }}>{rout.overview}</Text>
 
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
                                 <TouchableOpacity nPress={() => navigation.navigate('action')}
@@ -66,7 +104,7 @@ const Action = ({ navigation }) => {
 
                                 <TouchableOpacity onPress={() =>
                                     navigation.navigate('home')}>
-                                    <FontAwesome name='home' size={25} color={'#ffce2d'} />
+                                    <FontAwesome name='home' size={25} color={'#dbdddd'} />
                                 </TouchableOpacity>
 
                                 <TouchableOpacity onPress={() =>
@@ -75,11 +113,11 @@ const Action = ({ navigation }) => {
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>
                                     navigation.navigate('action')}>
-                                    <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
+                                    <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={() =>
-                                    navigation.navigate('first')}>
-                                    <FontAwesome name='comment-o' size={25} color={'#dbdddd'} />
+                                    navigation.navigate('list')}>
+                                    <Feather name='grid' size={25} color={'#dbdddd'} />
                                 </TouchableOpacity>
 
                             </View>
@@ -88,8 +126,6 @@ const Action = ({ navigation }) => {
                     </LinearGradient>
 
                 </ScrollView>
-
-            </SafeAreaView>
 
         </View>
     )

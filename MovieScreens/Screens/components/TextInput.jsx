@@ -2,19 +2,20 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { TextInput } from 'react-native-paper';
 
-const TextInputComponent = ({ label, placeholder, mode, IconName, placeholderTextColor,Icon}) => {
+const TextInputComponent = ({ label, placeholder, mode, IconName, placeholderTextColor,Icon,onChangeText}) => {
     return (
         <View>
             <TextInput
 
                 style={styles.input}
+                textColor='#e1e3e6'
                 label={label}
                 placeholder={placeholder}
-                placeholderTextColor={placeholderTextColor}
                 mode={mode}
-                // right={<TextInput.Icon icon={Icon}/>}
+                onChangeText= {onChangeText}
+              
                 left={<TextInput.Icon icon={IconName}/>}
-                value=''
+                
 
             />
         </View>
@@ -27,8 +28,7 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        backgroundColor: '#303234',
-
+        backgroundColor: '#303234'
 
     },
 

@@ -90,7 +90,7 @@ const Home = ({ navigation }) => {
                     <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() =>
-                    navigation.navigate('first')}>
+                    navigation.navigate('list')}>
                     <Feather name='grid' size={25} color={'#dbdddd'} />
                 </TouchableOpacity> 
 
