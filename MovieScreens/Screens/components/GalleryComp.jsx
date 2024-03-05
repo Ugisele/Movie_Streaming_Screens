@@ -9,7 +9,6 @@ import Navigation from "../navigation";
 //     {
 //         image:require('../../assets/home/5.jpg'),
 //         rate: 8.8
-
 //     },
 //     {
 //         image:require('../../assets/home/6.jpg'),

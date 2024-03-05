@@ -9,7 +9,7 @@ const FirstScreen = ({ navigation }) => {
         navigation.navigate('getstarted')
       }
       >
-        <Image source={require('../assets/logo (1).png')} />
+        <Image source={require('../assets/logo.png')} />
       </TouchableOpacity>
 
 

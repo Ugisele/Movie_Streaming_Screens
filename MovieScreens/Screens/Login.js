@@ -17,7 +17,7 @@ const Login = ({ navigation }) => {
 
                 <View style={{ backgroundColor: "rgba(000,000,000,0.7)", height: "100%" }}>
                     <View style={styles.log}>
-                        <Image source={require('../assets/logo (1).png')} />
+                        <Image source={require('../assets/logo.png')} />
                         <TouchableOpacity>
                             <Text style={styles.logtext} onPress={() =>
                             navigation.navigate('register')}>Register</Text>
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 0,
         width: '15px',
-        paddingVertical: 10
+        paddingVertical: 2
 
     },
     

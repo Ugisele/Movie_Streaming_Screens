@@ -15,7 +15,7 @@ const Welcome = ({ navigation }) => {
 
         <View style={styles.container} >
             <View style={styles.logo}>
-                <Image source={require('../assets/logo (1).png')} />
+                <Image source={require('../assets/logo.png')} />
             </View>
 
             <View style={styles.image}>
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#D9D9DA',
         textAlign: 'center',
-        marginBottom: 60
+        marginBottom: 50
     },
   
 

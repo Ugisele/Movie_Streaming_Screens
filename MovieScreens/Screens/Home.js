@@ -14,7 +14,7 @@ const Home = ({ navigation }) => {
             <StatusBar style='light' />
             <ScrollView>
                 <View style={styles.log}>
-                    <Image source={require('../assets/logo (1).png')} />
+                    <Image source={require('../assets/logo.png')} />
 
                     <TouchableOpacity style={{ flexDirection: 'row', gap: 10 }}>
                         <FontAwesome name="bell-o" style={styles.logicon} size={23} />

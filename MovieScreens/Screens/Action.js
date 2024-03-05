@@ -50,12 +50,11 @@ const Action = ({ navigation, route }) => {
 
     return (
         <View style={{ display: 'flex', height: height, width: width, }}>
+              <ScrollView>
             <YoutubePlayer
-                        height={225}
+                        height={220}
                         videoId={isPlaying}
             />
-            
-                <ScrollView>
 
                     <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
 
@@ -73,17 +72,17 @@ const Action = ({ navigation, route }) => {
 
 
                         <View style={{ paddingVertical: 1, paddingHorizontal: 10 }}>
-                            <Text style={{ color: '#d5d2d1', fontSize: 20, fontWeight: 'bold', }}>{rout.title}</Text>
-                            <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10 }}>{rout.overview}</Text>
+                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.title}</Text>
+                            <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10,fontStyle:'italic' }}>{rout.overview}</Text>
 
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
-                                <TouchableOpacity nPress={() => navigation.navigate('action')}
+                                <TouchableOpacity onPress={() => navigation.navigate('action')}
                                     style={{ paddingVertical: 10, backgroundColor: '#fdd130', flexDirection: 'row', alignItems: 'center', gap: 8, width: 170, padding: 6, borderRadius: 10 }}>
                                     <Feather name="play" size={25} />
                                     <Text style={{ fontSize: 18 }}>Play</Text>
 
                                 </TouchableOpacity>
-                                <TouchableOpacity nPress={() =>
+                                <TouchableOpacity onPress={() =>
                                     navigation.navigate('list')}
                                     style={{ paddingVertical: 10, backgroundColor: '#434549', flexDirection: 'row', alignItems: 'center', gap: 8, width: 170, padding: 6, borderRadius: 10 }}>
                                     <Feather name="plus" size={25} color={'#9e904f'} />

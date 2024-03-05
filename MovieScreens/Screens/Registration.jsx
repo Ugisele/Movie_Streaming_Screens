@@ -10,7 +10,7 @@ const Registration = ({ navigation }) => {
         <View style={styles.container}>
 
             <View style={{ paddingHorizontal: 90, paddingVertical: 40 }}>
-                <Image source={require('../assets/logo (1).png')} />
+                <Image source={require('../assets/logo.png')} />
 
             </View>
             <Text style={{ color: '#9fa1a4', fontSize: 15, textAlign: 'center', paddingVertical: 10 }}> Sign up to discover all our movies and enjoy all our content</Text>
