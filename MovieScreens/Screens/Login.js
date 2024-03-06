@@ -23,27 +23,27 @@ const Login = ({ navigation }) => {
         return emailRegex.test(email)
     }
 
-    const onSubmit = ()=>{
+    const onSubmit = () => {
         let validation = true
 
-       if (email.trim() === ""){
-        setEmailError('email required')
-        validation = false
+        if (email.trim() === "") {
+            setEmailError('email required')
+            validation = false
 
-       } else if(!isValidEmail(email)){
-        setEmailError('invalid email address')
-        validation = false
-       }
-       else{
+        } else if (!isValidEmail(email)) {
+            setEmailError('invalid email address')
+            validation = false
+        }
+        else {
 
-        setEmail('')
+            setEmail('')
 
-       } 
+        }
 
-    if(password.length < 8){
+        if (password.length < 8) {
             setPasswordError('Password must be at least 8 characters')
             validation = false
-        } else{
+        } else {
             setPasswordError('')
 
         }
@@ -51,38 +51,50 @@ const Login = ({ navigation }) => {
         return validation
     }
 
-    const isValidate = () =>{
-        if(onSubmit()){
+    const isValidate = async () => {
+        if (onSubmit()) {
+            const data = {
+                email: email,
+                password: password
+            }
+            await AsyncStorage.setItem('user_data', JSON.stringify(data))
+            console.log('Form submitted:', email, password)
             navigation.navigate('home')
-        }  
+        }
     }
+    const getData = async () => {
+        let data = await AsyncStorage.getItem('user_data')
+        console.log('data')
+    }
+    getData()
 
-    useEffect (()=> {
-
-    }, [])
-
-
-
-    const handleSubmit = async () => {
-        const data={
-            email: email,
-            password: password
-        }
-        await AsyncStorage.setItem('user_data',JSON.stringify(data))
-
-        navigation.navifate('home')
-        console.log(userexist)
-        
-        }
     
+
+    // const StoreData = async () => {
+    //     this.getData();
+
+    //     try {
+    //         this.setData(email, 'abc123')
+    //         await AsyncStorage.setItem('email', this.data.email)
+    //         navigation.navifate('home')
+    //         console.log(userexist)
+
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    // }
+
+   
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../assets/login.jpg')}
                 style={styles.image}>
 
                 <KeyboardAvoidingView behavior='position' >
-                    <View style={{ backgroundColor: "rgba(0,0,0,0.7)", height: height, justifyContent: "space-between",
-                    // `${Keyboard.isVisible() ? "flex-around" : "space-around"}` 
+                    <View style={{
+                        backgroundColor: "rgba(0,0,0,0.7)", height: height, justifyContent: "space-between",
+                        // `${Keyboard.isVisible() ? "flex-around" : "space-around"}` 
                     }}>
                         <View style={styles.log} >
                             <Image source={require('../assets/logo.png')} />
@@ -93,60 +105,62 @@ const Login = ({ navigation }) => {
                         </View>
                         <LinearGradient colors={['rgba(0,0,0,0.7)', '#26282c']}>
 
-                        <View style={styles.Login}>
+                            <View style={styles.Login}>
 
-                            <Text style={styles.text}>Login</Text>
+                                <Text style={styles.text}>Login</Text>
 
-                            <TextInput style={styles.input}
-                                mode="flat"
-                                label={'Email'}
-                                textColor='#e1e3e6'
-                                value={email}
-                                onChangeText={(value)=>setEmail(value)}
-                                placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
-                                right={<TextInput.Icon icon={'email-outline'} color='#867f3f' />}
+                                <Text>{this.data.email}</Text>
 
-                            /> 
-                            {emailError ? <Text style={{fontSize: 15,color:"red"}}>{emailError}</Text> : null}
+                                <TextInput style={styles.input}
+                                    mode="flat"
+                                    label={'Email'}
+                                    textColor='#e1e3e6'
+                                    value={this.data.email}
+                                    onChangeText={(value) => setEmail(value)}
+                                    placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
+                                    right={<TextInput.Icon icon={'email-outline'} color='#867f3f' />}
 
-                            <TextInput style={styles.input}
-                                underlineColor='black'
-                                secureTextEntry
-                                mode="flat"
-                                textColor='#e1e3e6'
-                                value={password}
-                                onChangeText={setPassword}
-                                label={'password'}
-                                placeholder='*********' placeholderTextColor={'#adaeaf'}
-                                right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}
+                                />
+                                {emailError ? <Text style={{ fontSize: 15, color: "red" }}>{emailError}</Text> : null}
 
-                            />
-                            {passwordError ? <Text style={{fontSize: 15,color:"red"}} >{passwordError}</Text> : null}
-                        
-                            <TouchableOpacity style={styles.forget}>
-                                <Text style={styles.forgetext}>Forgot password ?</Text>
-                            </TouchableOpacity>
+                                <TextInput style={styles.input}
+                                    underlineColor='black'
+                                    secureTextEntry
+                                    mode="flat"
+                                    textColor='#e1e3e6'
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    label={'password'}
+                                    placeholder='*********' placeholderTextColor={'#adaeaf'}
+                                    right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}
 
+                                />
+                                {passwordError ? <Text style={{ fontSize: 15, color: "red" }} >{passwordError}</Text> : null}
 
-                            <Text style={styles.text1}>or contuiner with</Text>
-                            <View style={styles.or}>
-                                <TouchableOpacity style={styles.icon}>
-                                    {/* <AntDesign name='facebook-square' color='red'/> */}
-                                    <IconButton icon="google" size={30} color="#867f3f" />
-
-                                </TouchableOpacity>
-                                <TouchableOpacity style={styles.icon}>
-                                    <IconButton icon="facebook" size={30} color="blue" />
-
+                                <TouchableOpacity style={styles.forget}>
+                                    <Text style={styles.forgetext}>Forgot password ?</Text>
                                 </TouchableOpacity>
 
+
+                                <Text style={styles.text1}>or contuiner with</Text>
+                                <View style={styles.or}>
+                                    <TouchableOpacity style={styles.icon}>
+                                        {/* <AntDesign name='facebook-square' color='red'/> */}
+                                        <IconButton icon="google" size={30} color="#867f3f" />
+
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={styles.icon}>
+                                        <IconButton icon="facebook" size={30} color="blue" />
+
+                                    </TouchableOpacity>
+
+                                </View>
+
+
+                                <TouchableOpacity style={styles.btn} onPress={isValidate}>
+                                    <Button title={'Login'} />
+                                </TouchableOpacity>
                             </View>
-
-
-                            <TouchableOpacity style={styles.btn} onPress={isValidate}>
-                                <Button title={'Login'} />
-                            </TouchableOpacity>
-                        </View>
                         </LinearGradient>
                     </View>
 
