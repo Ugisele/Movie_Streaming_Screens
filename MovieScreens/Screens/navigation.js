@@ -27,7 +27,7 @@ const Tab = createBottomTabNavigator()
 export default function Navigation() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="first">
+            <Stack.Navigator initialRouteName="getstarted">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />

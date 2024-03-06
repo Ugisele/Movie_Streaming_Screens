@@ -1,52 +1,119 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
 import Button from './components/button';
 
 
 const Registration = ({ navigation }) => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [emailError, setEmailError] = useState('')
+    const [passwordError, setPasswordError] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [confirmPasswordError, setConfirmPasswordError] = useState('')
+
+    const validateForm = () => {
+        let valid = true
+
+        // Validate email
+        if (!email.trim()) {
+            setEmailError('Email is required')
+            valid = false
+        } else if (!isValidEmail(email)) {
+            setEmailError('Invalid email format')
+            valid = false
+        } else {
+            setEmailError('')
+        }
+        // Validate password
+        if (!password.trim()) {
+            setPasswordError('Password is required')
+            valid = false
+        } else {
+            setPasswordError('')
+        }
+        if (!confirmPassword.trim()) {
+            setConfirmPasswordError('Confirm password is required')
+            valid = false
+        } else if (setPassword !== setConfirmPassword) {
+            setConfirmPasswordError('')
+            valid = false
+        } else {
+
+        }
+
+    }
+    // return valid 
+
+    const handleSubmit = () => {
+        if (validateForm()) {
+            navigation.navigate('home')
+        }
+    }
+    const isValidEmail = (email) => {
+        ///////// Basic email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+    }
+
     return (
         <View style={styles.container}>
 
-            <View style={{ paddingHorizontal: 90, paddingVertical: 40 }}>
+
+            <View style={{ paddingHorizontal: 90, paddingVertical: 30 }}>
                 <Image source={require('../assets/logo.png')} />
 
             </View>
-            <Text style={{ color: '#9fa1a4', fontSize: 15, textAlign: 'center', paddingVertical: 10 }}> Sign up to discover all our movies and enjoy all our content</Text>
-
-            <TextInput style={styles.input}
-
-                mode="flat"
-                placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
-
-            />
-
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                placeholder='Password' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
+            <Text style={{ color: '#9fa1a4', fontSize: 15, textAlign: 'center',  }}> Sign up to discover all our movies and enjoy all our content</Text>
 
 
-            />
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                placeholder='confirm password' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
+            <KeyboardAvoidingView behavior='padding' hitSlop={""}>
+                <TextInput style={{ ...styles.input }}
+                    value={email}
+                    onChangeText={setEmail}
+                    error={!!emailError}
+                    textColor='#e1e3e6'
+                    mode="flat"
+                    placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
 
-            />
+                />
+                {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
 
-            <TouchableOpacity onPress={() =>
-                            navigation.navigate('login')}>
+                <TextInput style={styles.input}
+                    value={password}
+                    onChangeText={setPassword}
+                    error={!!passwordError}
+                    textColor='#e1e3e6'
+                    secureTextEntry
+                    mode="flat"
+                    placeholder='Password' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
+                />
+                {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
 
-            <Button title='sign up' />
+                <TextInput style={styles.input}
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                    error={!!confirmPassword}
+                    textColor='#e1e3e6'
+                    secureTextEntry
+                    mode="flat"
+                    placeholder='confirm password' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
+                />
+
+            </KeyboardAvoidingView>
+
+
+            <TouchableOpacity onPress={handleSubmit}>
+
+                <Button title='sign up' />
 
             </TouchableOpacity>
 
-            
+
 
             <View style={{ flexDirection: 'row', gap: 2 }}>
                 <Text style={{ fontSize: 15, color: '#98999c' }}>By sign up you agree with</Text>
@@ -68,9 +135,9 @@ const Registration = ({ navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity>
                 <View style={styles.orview2}>
-                   <Image source={require('../assets/apple.png')} style={{ height: 30, width: 30,tintColor: '#fefefe'}} />
+                    <Image source={require('../assets/apple.png')} style={{ height: 30, width: 30, tintColor: '#fefefe' }} />
                     <Text style={styles.orview2text}>Sign up with apple account</Text>
-                    
+
 
                 </View>
 
@@ -80,7 +147,7 @@ const Registration = ({ navigation }) => {
             <View style={styles.signup}>
                 <Text style={styles.signuptext1}>Already have any account ?</Text>
                 <TouchableOpacity onPress={() =>
-                            navigation.navigate('login')}>
+                    navigation.navigate('login')}>
                     <Text style={styles.signuptext}> Sign in</Text>
                 </TouchableOpacity>
             </View>
@@ -88,7 +155,7 @@ const Registration = ({ navigation }) => {
 
             <StatusBar />
 
-        </View>
+        </View >
     )
 }
 export default Registration;
@@ -115,8 +182,12 @@ const styles = StyleSheet.create({
         color: '#98999c'
 
     },
+    error: {
+        color: 'red',
+        fontSize: 14,
+        marginTop: 5
+    },
 
-   
     or: {
         fontSize: 15,
         paddingVertical: 15,

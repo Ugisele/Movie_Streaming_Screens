@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Pressable } from "react-native";
 import { Image } from "react-native-elements";
 import Navigation from "../navigation";
 
@@ -34,14 +34,14 @@ const Gallery = ({ image, rate,navigation }) => {
 
     return (
         <View>
-            <TouchableOpacity onPress={() => {
+            <Pressable onPress={() => {
                                     navigation.navigate('action')
                                 }}>
 
             <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 120, height: 190, borderRadius: 10 }} />
             <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}> {rate}</Text>
 
-            </TouchableOpacity>
+            </Pressable>
            
         </View>
     )

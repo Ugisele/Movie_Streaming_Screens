@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, ImageBackground, TouchableOpacity } from "react-native";
+import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable } from "react-native";
 import Navigation from "../navigation";
 
 // export const Card = [
@@ -24,14 +24,14 @@ import Navigation from "../navigation";
 const Popular = ({ image, title,navigation }) => {
     return (
         <View>
-            <TouchableOpacity onPress={() =>
+            <Pressable onPress={() =>
                             navigation.navigate('action')}>
 
             <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}>{title}</Text>
             <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 370, height: 600, marginBottom: 10 }} />
             
 
-            </TouchableOpacity>
+            </Pressable>
             {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: '90%', height: 220, borderRadius: 10, marginBottom: 10, }} /> */}
             
 

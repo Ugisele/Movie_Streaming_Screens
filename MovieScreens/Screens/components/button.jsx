@@ -1,5 +1,5 @@
 import * as React from "react";
-import { View,TouchableOpacity,Text,StyleSheet } from "react-native";
+import { View,Text,StyleSheet } from "react-native";
 
 
 const Button = ({title})=>{
@@ -15,7 +15,7 @@ const Button = ({title})=>{
     btn: {
         backgroundColor: '#fdd130',
         height: 50,
-        marginBottom: 30,
+        marginBottom: 40,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 10,
@@ -24,7 +24,6 @@ const Button = ({title})=>{
     btntext: {
         fontSize: 20,
         fontWeight:'bold'
-
     },
 
  })

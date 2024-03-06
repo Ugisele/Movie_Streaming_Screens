@@ -8,8 +8,8 @@ import Navigation from "./navigation";
 import TrendingMuvi from "./fetchApi/Trending";
 import YoutubePlayer from'react-native-youtube-iframe'
 
-const height = Dimensions.get("screen")
-const width = Dimensions.get("screen")
+export const height = Dimensions.get("window").height
+const width = Dimensions.get("window").width
 
 const Action = ({ navigation, route }) => {
     console.log(route);
