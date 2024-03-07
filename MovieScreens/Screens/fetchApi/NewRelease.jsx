@@ -3,7 +3,7 @@ import { FlatList, View, Text, TouchableOpacity } from 'react-native';
 import Gallery from '../components/GalleryComp';
 import axios from 'axios';
 
-export default function NewRelease() {
+export default function NewRelease({navigation}) {
   // const [search, setSearch] = useState([]);
   // const [searchData, setSearchData] = useState('')
   const options = {
@@ -43,12 +43,7 @@ export default function NewRelease() {
           const item = post.item
           return (
 
-            <TouchableOpacity>
-              
-               <Gallery image={item.poster_path} rate={item.original_title} />
-
-            </TouchableOpacity>
-           
+               <Gallery image={item.poster_path} rate={item.original_title} press={()=>{navigation.navigate('action', item)}}/>
           )
         }
         }

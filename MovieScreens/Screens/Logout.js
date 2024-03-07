@@ -15,26 +15,23 @@ const Profile = ({ navigation }) => {
                 <Image style={{height:100,width:100,borderRadius:50,justifyContent:'center',alignContent:'center'}} source={require('../assets/img 1.jpeg')} />
                 <View style={{display:'flex',flexDirection:'row',gap:4,marginTop:15,borderWidth:2,borderColor:'#626263',borderRadius:10,width:145,padding:7}}>
                     <FontAwesome name='edit' size={25} color={'#7c6537'}/>
-                    <Text style={{fontSize: 15,color:'#adaeaf'}}> Change avatar</Text>
+                    <Text style={{fontSize: 15,color:'#adaeaf'}}> Edit Profile</Text>
                 </View>
 
-            </View>
-           
+            </View>           
             <TextInput style={styles.input}
                 mode="flat"
                 label={'Email'}
                 placeholder='Umutonigisele12@gmail.com' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
+                left={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
 
             />
-
             <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"
                 label={'Username'}
                 placeholder='Ugisele' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'account-outline'} color='#7c6537' />}
-
+                left={<TextInput.Icon icon={'account-outline'} color='#7c6537' />}
 
             />
              <TextInput style={styles.input}
@@ -42,8 +39,7 @@ const Profile = ({ navigation }) => {
                 mode="flat"
                 label={'password'}
                 placeholder='Password' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
-
+                left={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
             />
              <TextInput style={styles.input}
@@ -51,8 +47,7 @@ const Profile = ({ navigation }) => {
                 mode="flat"
                 label={'Change Password'}
                 placeholder='*********' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
-
+                left={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
             />
             <TextInput style={styles.input}
@@ -63,7 +58,6 @@ const Profile = ({ navigation }) => {
                 right={<TextInput.Icon icon={'phone'} color='#7c6537' />}
 
             />
-            
             <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"
@@ -72,9 +66,9 @@ const Profile = ({ navigation }) => {
                 right={<TextInput.Icon icon={'heart-outline'} color='#7c6537' />}
 
             /> 
-            <TouchableOpacity style={{marginTop:70,}}>
+            <TouchableOpacity style={{backgroundColor:'transparent',borderWidth:1,marginTop:70,padding:10, borderRadius:20}}>
 
-            <Button title={'Save Changes'}/> 
+                <Text style={{fontSize:20,fontWeight:'600', textAlign:'center',color: '#af6259'}}>Logout</Text>
 
             </TouchableOpacity>
             

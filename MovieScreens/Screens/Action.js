@@ -46,8 +46,6 @@ const Action = ({ navigation, route }) => {
             .catch((err) => console.error(err));
         };
       
-    
-
     return (
         <View style={{ display: 'flex', height: height, width: width, }}>
               <ScrollView>
@@ -72,7 +70,7 @@ const Action = ({ navigation, route }) => {
 
 
                         <View style={{ paddingVertical: 1, paddingHorizontal: 10 }}>
-                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.title}</Text>
+                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.name}</Text>
                             <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10,fontStyle:'italic' }}>{rout.overview}</Text>
 
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
@@ -82,8 +80,7 @@ const Action = ({ navigation, route }) => {
                                     <Text style={{ fontSize: 18 }}>Play</Text>
 
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>
-                                    navigation.navigate('list')}
+                                <TouchableOpacity 
                                     style={{ paddingVertical: 10, backgroundColor: '#434549', flexDirection: 'row', alignItems: 'center', gap: 8, width: 170, padding: 6, borderRadius: 10 }}>
                                     <Feather name="plus" size={25} color={'#9e904f'} />
                                     <Text style={{ fontSize: 18, color: '#d5d2d1', }}>My List</Text>
@@ -92,34 +89,13 @@ const Action = ({ navigation, route }) => {
 
                             </View>
 
-                            <View>
+                            {/* <View>
                                 <NewRelease />
                             </View>
+
                             <View>
                                 <TrendingMuvi />
-
-                            </View>
-                            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignContent: 'center', marginBottom: 1, marginTop: 5 }}>
-
-                                <TouchableOpacity onPress={() =>
-                                    navigation.navigate('home')}>
-                                    <FontAwesome name='home' size={25} color={'#dbdddd'} />
-                                </TouchableOpacity>
-
-                                <TouchableOpacity onPress={() =>
-                                    navigation.navigate('search')}>
-                                    <FontAwesome name='search' size={25} color={'#dbdddd'} />
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>
-                                    navigation.navigate('action')}>
-                                    <FontAwesome name='folder-o' size={25} color={'#ffce2d'} />
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={() =>
-                                    navigation.navigate('list')}>
-                                    <Feather name='grid' size={25} color={'#dbdddd'} />
-                                </TouchableOpacity>
-
-                            </View>
+                            </View> */}
                         </View>
 
                     </LinearGradient>

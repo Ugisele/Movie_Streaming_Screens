@@ -3,6 +3,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather } from '@expo/vector-icons'
+import { Icon } from "react-native-elements";
+
 
 import FirstScreen from "./firstScreen";
 import Started from "./getStarted";
@@ -21,30 +23,25 @@ import Gallery from "./components/GalleryComp";
 import Trending from "./components/trendingComp";
 import Popular from "./components/PopularComp";
 
+
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator()
 
-export default function Navigation() {
+export default function Navigation (){
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="getstarted">
+            <Stack.Navigator initialRouteName="home">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
                 <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
-                {/* <Stack.Screen name="signin" component={Signin} options={{ headerShown: false }} /> */}
                 <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
-                <Stack.Screen name="home" component={Home} options={{ headerShown: false }} />
-                <Stack.Screen name="search" component={Search} options={{ headerShown: false }} />
-                {/* <Stack.Screen name="searcherror" component={SearchError} options={{ headerShown: false }} /> */}
-                <Stack.Screen name="list" component={List} options={{ headerShown: false }} />
+                <Stack.Screen name="home" component={BottomTabNav} options={{ headerShown: false }} />
                 <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
                 <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
                 <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
                 <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} />
-
-
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -53,41 +50,27 @@ export default function Navigation() {
 export const BottomTabNav = () => {
 
     return (
-        <Tab.Navigator>
+        <Tab.Navigator screenOptions={{tabBarLabel:'',tabBarStyle:{backgroundColor:'#26282c'}}} >
             <Tab.Screen
                 name="hometab"
                 component={Home}
-                tabBarIcon={({ color, size }) => (
-                    <FontAwesome name="home" size={size} color={color} />
-                )}
+                options={{headerShown:false, tabBarIcon:() =><Icon name="home-outline" type="material-community" size={30} color={'#dbdddd'}/>}}
             />
             <Tab.Screen
                 name="searchtab"
                 component={Search}
-                tabBarIcon={({ color, size }) => (
-                    <FontAwesome name="home" size={size} color={color} />
-                )}
+                options={{headerShown:false, tabBarIcon:() =><Icon name="magnify" type="material-community" size={30} color={'#dbdddd'}/>}}
             />
             <Tab.Screen
                 name="actiontab"
                 component={Action}
-                tabBarIcon={({ color, size }) => (
-                    <FontAwesome name="home" size={size} color={color} />
-                )}
+                options={{headerShown:false, tabBarIcon:() =><Icon name="folder-outline" type="material-community" size={30} color={'#dbdddd'}/>}} 
             />
             <Tab.Screen
                 name="listtab"
                 component={List}
-                tabBarIcon={({ color, size }) => (
-                    <Feather name="grid" size={size} color={color} />
-                )}
+                options={{headerShown:false,tabBarIcon:() =><Icon name="account-outline" type="material-community" size={30} color={'#dbdddd'}/>}}               
             />
-
-
         </Tab.Navigator>
-
-
-    )
+   )
 }
-
-

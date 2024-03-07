@@ -155,28 +155,6 @@ const Search = ({ navigation }) => {
 
                 </View> */}
 
-            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
-                <TouchableOpacity onPress={() =>
-                    navigation.navigate('home')}>
-                    <FontAwesome name='home' size={25} color={'#dbdddd'} />
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() =>
-                    navigation.navigate('search')}>
-                    <FontAwesome name='search' size={25} color={'#ffce2d'} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() =>
-                    navigation.navigate('action')}>
-                    <FontAwesome name='folder-o' size={25} color={'#dbdddd'} />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() =>
-                    navigation.navigate('list')}>
-                    <Feather name='grid' size={25} color={'#dbdddd'} />
-                    {/* <AntDesign name='appstore-o' size={25} color={'white'}/> */}
-                </TouchableOpacity>
-
-            </View>
-
         </View>
     );
 };

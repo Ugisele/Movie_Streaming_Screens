@@ -1,100 +1,95 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { StatusBar, Image, StyleSheet, Text, View, TouchableOpacity, ImageBackground, KeyboardAvoidingView, Keyboard, Pressable } from 'react-native';
 import { TextInput } from 'react-native-paper';
 import { LinearGradient } from 'expo-linear-gradient';
-import { AntDesign } from 'react-native-vector-icons/AntDesign';
-import { colors } from 'react-native-elements';
 import { IconButton } from 'react-native-paper'
 import Button from './components/button';
 import { height } from './Action';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { formToJSON } from 'axios';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { Firebase_Auth } from '../FirebaseConfig';
+import FlashMessage, {showMessage} from "react-native-flash-message";
+
 
 const Login = ({ navigation }) => {
-    const [keyboardShown, setKeyboardShown] = useState(false)
     const [email, setEmail] = useState("")
     const [emailError, setEmailError] = useState('')
     const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState('')
+
+    const auth = Firebase_Auth
 
     const isValidEmail = (email) => {
         ///////// REGEX
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         return emailRegex.test(email)
     }
-
     const onSubmit = () => {
         let validation = true
 
-        if (email.trim() === "") {
+        if (!email.trim() === "") {
             setEmailError('email required')
             validation = false
-
         } else if (!isValidEmail(email)) {
             setEmailError('invalid email address')
             validation = false
         }
         else {
-
-            setEmail('')
-
+            setEmailError('')
         }
-
         if (password.length < 8) {
             setPasswordError('Password must be at least 8 characters')
             validation = false
         } else {
             setPasswordError('')
-
         }
-
         return validation
     }
-
-    const isValidate = async () => {
+    const onPress = async () => {
         if (onSubmit()) {
-            const data = {
-                email: email,
-                password: password
-            }
-            await AsyncStorage.setItem('user_data', JSON.stringify(data))
-            console.log('Form submitted:', email, password)
-            navigation.navigate('home')
+            
+            console.log(email);
+            console.log(password);
+            try {
+                const response = await signInWithEmailAndPassword(auth, email,password)
+                console.log(response);
+                console.log('you are now signed in');
+
+                showMessage({
+                    message: "Welcome to home screen!",
+                    type: "success",
+                    duration: 5000,
+                    autoHide: true,
+
+                  });
+
+                navigation.navigate('home')
+
+            } catch (error) {
+                console.log(error);
+
+                showMessage({
+                    message: "Invalid creditentials!",
+                    type: "danger",
+                    duration: 5000,
+                    autoHide: true,});
+            } 
+           
         }
     }
-    const getData = async () => {
-        let data = await AsyncStorage.getItem('user_data')
-        console.log('data')
-    }
-    getData()
-
-    
-
-    // const StoreData = async () => {
-    //     this.getData();
-
-    //     try {
-    //         this.setData(email, 'abc123')
-    //         await AsyncStorage.setItem('email', this.data.email)
-    //         navigation.navifate('home')
-    //         console.log(userexist)
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-   
-
     return (
         <View style={styles.container}>
+
+            <FlashMessage
+                position='top'
+                duration= {3000}
+            />
             <ImageBackground source={require('../assets/login.jpg')}
                 style={styles.image}>
 
                 <KeyboardAvoidingView behavior='position' >
                     <View style={{
                         backgroundColor: "rgba(0,0,0,0.7)", height: height, justifyContent: "space-between",
-                        // `${Keyboard.isVisible() ? "flex-around" : "space-around"}` 
                     }}>
                         <View style={styles.log} >
                             <Image source={require('../assets/logo.png')} />
@@ -109,17 +104,14 @@ const Login = ({ navigation }) => {
 
                                 <Text style={styles.text}>Login</Text>
 
-                                <Text>{this.data.email}</Text>
-
                                 <TextInput style={styles.input}
                                     mode="flat"
                                     label={'Email'}
                                     textColor='#e1e3e6'
-                                    value={this.data.email}
-                                    onChangeText={(value) => setEmail(value)}
+                                    value={email}
+                                    onChangeText={setEmail}
                                     placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
                                     right={<TextInput.Icon icon={'email-outline'} color='#867f3f' />}
-
                                 />
                                 {emailError ? <Text style={{ fontSize: 15, color: "red" }}>{emailError}</Text> : null}
 
@@ -133,7 +125,6 @@ const Login = ({ navigation }) => {
                                     label={'password'}
                                     placeholder='*********' placeholderTextColor={'#adaeaf'}
                                     right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}
-
                                 />
                                 {passwordError ? <Text style={{ fontSize: 15, color: "red" }} >{passwordError}</Text> : null}
 
@@ -141,23 +132,19 @@ const Login = ({ navigation }) => {
                                     <Text style={styles.forgetext}>Forgot password ?</Text>
                                 </TouchableOpacity>
 
-
                                 <Text style={styles.text1}>or contuiner with</Text>
                                 <View style={styles.or}>
                                     <TouchableOpacity style={styles.icon}>
-                                        {/* <AntDesign name='facebook-square' color='red'/> */}
                                         <IconButton icon="google" size={30} color="#867f3f" />
-
                                     </TouchableOpacity>
+
                                     <TouchableOpacity style={styles.icon}>
                                         <IconButton icon="facebook" size={30} color="blue" />
-
                                     </TouchableOpacity>
 
                                 </View>
 
-
-                                <TouchableOpacity style={styles.btn} onPress={isValidate}>
+                                <TouchableOpacity style={styles.btn} onPress={onPress}>
                                     <Button title={'Login'} />
                                 </TouchableOpacity>
                             </View>
@@ -220,7 +207,6 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'flex-end',
         fontSize: 15,
-        // top: 15
         paddingVertical: 5
     },
     forgetext: {

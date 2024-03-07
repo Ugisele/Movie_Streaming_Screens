@@ -54,19 +54,13 @@ const Home = ({ navigation }) => {
 
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>New Release</Text>
                     
-
                     <TrendingMuvi />
-                   
-
 
                 </View>
                 <View>
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>Made for you</Text>
 
                     <NewRelease />
-                     
-
-                     {/* <TrendingMuvi/> */}
 
                 </View>
                 <View>
@@ -75,7 +69,7 @@ const Home = ({ navigation }) => {
                 </View>
             </ScrollView>
 
-            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
+            {/* <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginBottom: 10, marginTop: 5 }}>
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('home')}>
                     <FontAwesome name='home' size={25} color={'#ffce2d'} />
@@ -92,15 +86,9 @@ const Home = ({ navigation }) => {
                 <TouchableOpacity onPress={() =>
                     navigation.navigate('list')}>
                     <Feather name='grid' size={25} color={'#dbdddd'} />
-                </TouchableOpacity> 
+                </TouchableOpacity>
 
-
-                {/* <BottomTabNav/> */}
-
-
-
-
-            </View>
+            </View> */}
 
         </View>
     );

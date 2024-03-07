@@ -14,6 +14,7 @@ import Action from "./Screens/Action";
 import InputText from "./Screens/components/validation";
 import Signin from "./Screens/Signin";
 import Login from "./Screens/Login";
+import Profile from "./Screens/Profile";
 
 
 
@@ -40,13 +41,13 @@ export default function App() {
 
       <Navigation />  
        
-       {/* <InputText/>
-        */}
+       {/* <InputText/>*/}
+
+       {/* <Profile/> */}
 
         {/* <Signin/> */}
 
        {/* <Action />  */}
-
 
       {/* <List/> */}
 
@@ -56,7 +57,7 @@ export default function App() {
 
       {/* <SearchError/>  */}
       
-    <Login/>
+    {/* <Login/> */}
     </>
 
   )

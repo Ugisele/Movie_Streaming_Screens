@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image, KeyboardAvoidingView } from 'react-native';
 import { TextInput } from 'react-native-paper'
-import TextInputComponent from './components/TextInput';
 import Button from './components/button';
-
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { Firebase_Auth } from '../FirebaseConfig';
 
 const Registration = ({ navigation }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [emailError, setEmailError] = useState('')
     const [passwordError, setPasswordError] = useState('')
-    const [confirmPassword, setConfirmPassword] = useState('')
-    const [confirmPasswordError, setConfirmPasswordError] = useState('')
+
+    const isValidEmail = (email) => {
+        ///////// regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        return emailRegex.test(email)
+    }
+
+    const auth = Firebase_Auth
 
     const validateForm = () => {
         let valid = true
-
         // Validate email
         if (!email.trim()) {
             setEmailError('Email is required')
@@ -27,46 +32,38 @@ const Registration = ({ navigation }) => {
             setEmailError('')
         }
         // Validate password
-        if (!password.trim()) {
-            setPasswordError('Password is required')
-            valid = false
+        if (password.length < 8) {
+            setPasswordError('Password must be at least 8 characters')
+            validation = false
         } else {
             setPasswordError('')
         }
-        if (!confirmPassword.trim()) {
-            setConfirmPasswordError('Confirm password is required')
-            valid = false
-        } else if (setPassword !== setConfirmPassword) {
-            setConfirmPasswordError('')
-            valid = false
-        } else {
-
+        return valid 
         }
-
-    }
-    // return valid 
-
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (validateForm()) {
-            navigation.navigate('home')
+
+            try {
+                const Savedata = await createUserWithEmailAndPassword(auth, email,password)
+                console.log(Savedata);
+                console.log('you have successfully registered');
+
+                navigation.navigate('login')
+
+            } catch (error) {
+                console.log(error);
+            }
         }
     }
-    const isValidEmail = (email) => {
-        ///////// Basic email validation regex
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        return emailRegex.test(email)
-    }
-
+    
     return (
         <View style={styles.container}>
-
 
             <View style={{ paddingHorizontal: 90, paddingVertical: 30 }}>
                 <Image source={require('../assets/logo.png')} />
 
             </View>
             <Text style={{ color: '#9fa1a4', fontSize: 15, textAlign: 'center',  }}> Sign up to discover all our movies and enjoy all our content</Text>
-
 
             <KeyboardAvoidingView behavior='padding' hitSlop={""}>
                 <TextInput style={{ ...styles.input }}
@@ -77,7 +74,6 @@ const Registration = ({ navigation }) => {
                     mode="flat"
                     placeholder='Enter your email address' placeholderTextColor={'#adaeaf'}
                     right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
-
                 />
                 {emailError ? <Text style={styles.error}>{emailError}</Text> : null}
 
@@ -92,17 +88,6 @@ const Registration = ({ navigation }) => {
                     right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
                 />
                 {passwordError ? <Text style={styles.error}>{passwordError}</Text> : null}
-
-                <TextInput style={styles.input}
-                    value={confirmPassword}
-                    onChangeText={setConfirmPassword}
-                    error={!!confirmPassword}
-                    textColor='#e1e3e6'
-                    secureTextEntry
-                    mode="flat"
-                    placeholder='confirm password' placeholderTextColor={'#adaeaf'}
-                    right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
-                />
 
             </KeyboardAvoidingView>
 

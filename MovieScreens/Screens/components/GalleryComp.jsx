@@ -30,13 +30,11 @@ import Navigation from "../navigation";
 
 
 
-const Gallery = ({ image, rate,navigation }) => {
+const Gallery = ({ image, rate,navigation, press }) => {
 
     return (
         <View>
-            <Pressable onPress={() => {
-                                    navigation.navigate('action')
-                                }}>
+            <Pressable onPress={press}>
 
             <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 120, height: 190, borderRadius: 10 }} />
             <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}> {rate}</Text>
