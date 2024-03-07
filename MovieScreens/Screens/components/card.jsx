@@ -16,3 +16,4 @@ const Card = ({titleMov,imageMov,overView,navigation,onPress}) => {
 
 }
  export default Card;
+ 

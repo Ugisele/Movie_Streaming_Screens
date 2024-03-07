@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, View, Text, TouchableOpacity } from 'react-native';
+import { FlatList, View, Text, TouchableOpacity, Pressable } from 'react-native';
 import Gallery from '../components/GalleryComp';
 import axios from 'axios';
+import Action from '../Action';
 
-export default function NewRelease({navigation}) {
-  // const [search, setSearch] = useState([]);
-  // const [searchData, setSearchData] = useState('')
+
+export default function NewRelease({ navigation, }) {
+ 
   const options = {
     method: 'GET',
     headers: {
@@ -23,7 +24,6 @@ export default function NewRelease({navigation}) {
 
   })
 
-
   const [img, myGallery] = useState([])
 
   return (
@@ -39,11 +39,18 @@ export default function NewRelease({navigation}) {
           return item.id
         }}
         renderItem={post => {
-
           const item = post.item
           return (
+            <>
+              <Pressable press={() =>
+                navigation.navigate('action', item)}>
+                <Gallery image={item.poster_path} rate={item.original_title} />
 
-               <Gallery image={item.poster_path} rate={item.original_title} press={()=>{navigation.navigate('action', item)}}/>
+              </Pressable>
+              
+            </>
+
+
           )
         }
         }

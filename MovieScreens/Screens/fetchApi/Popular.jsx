@@ -3,7 +3,7 @@ import { FlatList, View, Text } from 'react-native';
 import Gallery from '../components/GalleryComp';
 import Popular from '../components/PopularComp';
 
-export default function PopularMuvi() {
+export default function PopularMuvi({navigation}) {
     const handling = {
         method: 'GET',
         headers: {
@@ -38,7 +38,8 @@ export default function PopularMuvi() {
                     const item = post.item
                     return (
 
-                        <Popular image={item.poster_path} title={item.original_title} />
+                        <Popular image={item.poster_path} title={item.original_title} onPress={() =>
+                            navigation.navigate('action',item)}/>
                     )
                 }
                 }

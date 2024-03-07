@@ -9,6 +9,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { Firebase_Auth } from '../FirebaseConfig';
 import FlashMessage, {showMessage} from "react-native-flash-message";
+import TextInputComponent from './components/TextInput';
 
 
 const Login = ({ navigation }) => {
@@ -16,6 +17,7 @@ const Login = ({ navigation }) => {
     const [emailError, setEmailError] = useState('')
     const [password, setPassword] = useState('')
     const [passwordError, setPasswordError] = useState('')
+    const [passwordSecurity, setPasswordSecurity] = useState(true)
 
     const auth = Firebase_Auth
 
@@ -73,17 +75,12 @@ const Login = ({ navigation }) => {
                     type: "danger",
                     duration: 5000,
                     autoHide: true,});
-            } 
-           
+            }   
         }
     }
     return (
         <View style={styles.container}>
 
-            <FlashMessage
-                position='top'
-                duration= {3000}
-            />
             <ImageBackground source={require('../assets/login.jpg')}
                 style={styles.image}>
 
@@ -104,6 +101,20 @@ const Login = ({ navigation }) => {
 
                                 <Text style={styles.text}>Login</Text>
 
+                                <TextInputComponent
+                             
+                                secureTextEntry={passwordSecurity}
+                                mode="flat"
+                                textColor='#e1e3e6'
+                                value={password}
+                                onChangeText={setPassword}
+                                label={'password'}
+                                placeholder='*********' placeholderTextColor={'#adaeaf'}
+                                IconName2={passwordSecurity ? 'eye-off-outline' : 'eye'}
+                                Icon={}
+                                />
+
+
                                 <TextInput style={styles.input}
                                     mode="flat"
                                     label={'Email'}
@@ -117,14 +128,14 @@ const Login = ({ navigation }) => {
 
                                 <TextInput style={styles.input}
                                     underlineColor='black'
-                                    secureTextEntry
+                                    secureTextEntry={true}
                                     mode="flat"
                                     textColor='#e1e3e6'
                                     value={password}
                                     onChangeText={setPassword}
                                     label={'password'}
                                     placeholder='*********' placeholderTextColor={'#adaeaf'}
-                                    right={<TextInput.Icon icon={'eye-off-outline'} color='#867f3f' />}
+                                    right={<TextInput.Icon  icon={passwordSecurity ? 'eye-off-outline' : 'eye'} color='#867f3f'/>} 
                                 />
                                 {passwordError ? <Text style={{ fontSize: 15, color: "red" }} >{passwordError}</Text> : null}
 

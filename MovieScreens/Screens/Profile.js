@@ -46,15 +46,6 @@ const Profile = ({ navigation }) => {
 
 
             />
-             <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Change Password'}
-                placeholder='*********' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
-
-
-            />
             <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"

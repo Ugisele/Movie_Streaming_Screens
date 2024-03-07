@@ -54,7 +54,7 @@ const Home = ({ navigation }) => {
 
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>New Release</Text>
                     
-                    <TrendingMuvi />
+                    {/* <TrendingMuvi /> */}
 
                 </View>
                 <View>

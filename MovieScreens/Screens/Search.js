@@ -5,29 +5,20 @@ import Gallery, { arrimages } from './components/GalleryComp';
 import { Slide } from './components/GalleryComp';
 // import Popular, { Card } from './components/PopularComp';
 import TextInputComponent from './components/TextInput';
-import { TextInput } from 'react-native-paper';
-import NewRelease from './fetchApi/NewRelease';
-import PopularMuvi from './fetchApi/Popular';
-import TrendingMuvi from './fetchApi/Trending';
 import Card from './components/card'
-
-
 
 const Search = ({ navigation }) => {
 
     const [search, setSearch] = useState([])
     const [searchData, setSearchData] = useState('')
 
-
     useEffect(() => {
         if (searchData.length > 0) {
             handleSearch()
-
         } else {
             setSearch([])
         }
     }, [searchData])
-
 
     const handleSearch = () => {
         const options = {
@@ -54,7 +45,6 @@ const Search = ({ navigation }) => {
 
             <StatusBar style='light' />
 
-
             <View>
                 <TextInputComponent
 
@@ -68,49 +58,6 @@ const Search = ({ navigation }) => {
                 />
 
             </View>
-
-            {/* {search.length == ' ' ? (
-                <>
-                    <View>
-                        <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', }}>Search History</Text>
-
-                        <TrendingMuvi />
-
-                    </View>
-                    <View>
-
-                        <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', }}>Top Search</Text>
-
-                        <NewRelease />
-
-                    </View>
-                    <View>
-
-                        <Text style={{ zIndex: 20, fontSize: 25, color: 'white', fontWeight: '600', }}>Your Daily mixes</Text>
-                        <PopularMuvi />
-
-                    </View>
-                </>
-            ) : (
-                <FlatList
-                    data={search}
-                    renderItem={({ item }) => (
-                        <>
-                            <View>
-                                <Card
-                                    imageMov={item.poster_path}
-                                    titleMov={item.original_title}
-                                    overView={item.overview}
-                                    onPress={() => {
-                                        navigation.navigate('action', item)
-                                    }}
-                                    keyExtrator={(item, index) => index.toString()}
-                                />
-                            </View>
-                        </>
-                    )}
-                />
-            )} */}
 
             <FlatList
                 data={search}
@@ -126,14 +73,10 @@ const Search = ({ navigation }) => {
                                 }}
                                 keyExtrator={(item, index) => index.toString()}
                             />
-
                         </View>
                     </>
-
                 )}
-
             />
-
 
             {/* <View>
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', }}>Search History</Text>

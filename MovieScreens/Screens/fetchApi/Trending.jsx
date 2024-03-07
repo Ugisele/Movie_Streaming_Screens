@@ -5,7 +5,7 @@ import Trending from '../components/trendingComp';
 
 
 
-export default function TrendingMuvi() {
+export default function TrendingMuvi({navigation}) {
     const options = {
         method: 'GET',
         headers: {
@@ -42,7 +42,8 @@ export default function TrendingMuvi() {
                     const item = post.item
                     return (
 
-                        <Trending image={item.poster_path} rate={item.original_title} />
+                        <Trending image={item.poster_path} rate={item.original_title} onPress={() =>
+                            navigation.navigate('action',item)}/>
                     )
                 }
                 }

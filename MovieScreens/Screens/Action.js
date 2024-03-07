@@ -1,10 +1,8 @@
 import React , {useEffect ,useState} from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions, SafeAreaView, ScrollView } from "react-native";
-import { AntDesign, Feather, FontAwesome } from "@expo/vector-icons";
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView } from "react-native";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import NewRelease from './fetchApi/NewRelease';
-import Trending from "./components/trendingComp";
-import Navigation from "./navigation";
 import TrendingMuvi from "./fetchApi/Trending";
 import YoutubePlayer from'react-native-youtube-iframe'
 
@@ -68,9 +66,8 @@ const Action = ({ navigation, route }) => {
                     </View>
                     <LinearGradient colors={['#222428', '#26282b', '#26282b']} >
 
-
                         <View style={{ paddingVertical: 1, paddingHorizontal: 10 }}>
-                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.name}</Text>
+                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.title}</Text>
                             <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10,fontStyle:'italic' }}>{rout.overview}</Text>
 
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
@@ -89,13 +86,13 @@ const Action = ({ navigation, route }) => {
 
                             </View>
 
-                            {/* <View>
+                            <View>
                                 <NewRelease />
                             </View>
 
                             <View>
                                 <TrendingMuvi />
-                            </View> */}
+                            </View>
                         </View>
 
                     </LinearGradient>

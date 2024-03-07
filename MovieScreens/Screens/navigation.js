@@ -22,6 +22,7 @@ import NewRelease from "./fetchApi/NewRelease";
 import Gallery from "./components/GalleryComp";
 import Trending from "./components/trendingComp";
 import Popular from "./components/PopularComp";
+import Profile from "./Profile";
 
 
 const Stack = createNativeStackNavigator();
@@ -30,7 +31,7 @@ const Tab = createBottomTabNavigator()
 export default function Navigation (){
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="home">
+            <Stack.Navigator initialRouteName="login">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
@@ -62,13 +63,13 @@ export const BottomTabNav = () => {
                 options={{headerShown:false, tabBarIcon:() =><Icon name="magnify" type="material-community" size={30} color={'#dbdddd'}/>}}
             />
             <Tab.Screen
-                name="actiontab"
-                component={Action}
+                name="listtab"
+                component={List}
                 options={{headerShown:false, tabBarIcon:() =><Icon name="folder-outline" type="material-community" size={30} color={'#dbdddd'}/>}} 
             />
             <Tab.Screen
-                name="listtab"
-                component={List}
+                name="profiletab"
+                component={Profile}
                 options={{headerShown:false,tabBarIcon:() =><Icon name="account-outline" type="material-community" size={30} color={'#dbdddd'}/>}}               
             />
         </Tab.Navigator>

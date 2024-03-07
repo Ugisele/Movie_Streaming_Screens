@@ -7,8 +7,7 @@ const Trending = ({ image, rate,navigation }) => {
 
     return (
         <View>
-            <Pressable onPress={() =>
-                            navigation.navigate('action')}>
+            <Pressable >
                 <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 120, height: 180, borderRadius: 10 }} />
                 <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}> {rate}</Text>
             </Pressable>
