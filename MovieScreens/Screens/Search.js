@@ -69,7 +69,7 @@ const Search = ({ navigation }) => {
                                 titleMov={item.original_title}
                                 overView={item.overview}
                                 onPress={() => {
-                                    navigation.navigate('action', item)
+                                    navigation.navigate('action', {movie:item})
                                 }}
                                 keyExtrator={(item, index) => index.toString()}
                             />

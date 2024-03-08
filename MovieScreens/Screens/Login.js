@@ -80,6 +80,11 @@ const Login = ({ navigation }) => {
     }
     return (
         <View style={styles.container}>
+            <FlashMessage
+            position='top'
+            
+            
+            />
 
             <ImageBackground source={require('../assets/login.jpg')}
                 style={styles.image}>

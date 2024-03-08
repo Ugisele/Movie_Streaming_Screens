@@ -5,7 +5,7 @@ import axios from 'axios';
 import Action from '../Action';
 
 
-export default function NewRelease({ navigation, }) {
+export default function NewRelease({ navigation }) {
  
   const options = {
     method: 'GET',
@@ -43,13 +43,14 @@ export default function NewRelease({ navigation, }) {
           return (
             <>
               <Pressable press={() =>
-                navigation.navigate('action', item)}>
+                navigation.navigate('action', {movie:item})}>
                 <Gallery image={item.poster_path} rate={item.original_title} />
+                
+
 
               </Pressable>
               
             </>
-
 
           )
         }

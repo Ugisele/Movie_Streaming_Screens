@@ -15,6 +15,7 @@ import InputText from "./Screens/components/validation";
 import Signin from "./Screens/Signin";
 import Login from "./Screens/Login";
 import Profile from "./Screens/Profile";
+import { ThemeProviderIntoLightMode } from "./Screens/context/themeContex";
 
 
 
@@ -39,7 +40,14 @@ export default function App() {
 
       {/* < Home /> */}
 
-      <Navigation />  
+      <ThemeProviderIntoLightMode>
+        
+      <Navigation /> 
+
+      </ThemeProviderIntoLightMode>
+
+       
+
        
        {/* <InputText/>*/}
 

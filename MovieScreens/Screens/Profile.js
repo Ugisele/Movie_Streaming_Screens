@@ -1,78 +1,90 @@
-import React from 'react';
-import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image,picker} from 'react-native';
+import React, { useContext } from 'react';
+import { StatusBar, StyleSheet, Text, View, TouchableOpacity, Image, picker, Dimensions, Pressable, KeyboardAvoidingView } from 'react-native';
 import { TextInput } from 'react-native-paper'
 import TextInputComponent from './components/TextInput';
 import Button from './components/button';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, Entypo } from '@expo/vector-icons';
+import { changeintoLightMode } from '../Screens/context/themeContex';
 
 
-const
+
+const height = Dimensions.get("window").height
+
 
 const Profile = ({ navigation }) => {
 
+    const { light, IntoLightMode } =
+        useContext(changeintoLightMode)
+
     return (
-        <View style={styles.container}>
+        <View style={{
+            backgroundColor: light ? 'white' : '#1f2123',
+            paddingHorizontal: 15,
+            // paddingVertical: 10,
+            height: height
+        }}>
 
-            <View style={{ paddingHorizontal: 125, paddingVertical: 20,display:'flex', }}>
+            <TouchableOpacity onPress={() => { IntoLightMode() }} style={{ flex: 1, textAlign: "start", justifyContent: 'flex-start', alignContent: 'flex-start' }}>
+                {/* <Text style={{color: 'white', fontSize: 18}}>Change Color</Text> */}
+                <Entypo name='switch' size={60} color="#1f2123" style={{ color: light ? '#1f2123' : 'white', right: 10, }} />
 
-                <Image style={{height:100,width:100,borderRadius:50,justifyContent:'center',alignContent:'center'}} source={require('../assets/img 1.jpeg')} />
-                <View style={{display:'flex',flexDirection:'row',gap:4,marginTop:15,borderWidth:2,borderColor:'#626263',borderRadius:10,width:145,padding:7}}>
-                    <FontAwesome name='edit' size={25} color={'#7c6537'}/>
-                    <Text style={{fontSize: 15,color:'#adaeaf'}}> Change avatar</Text>
+            </TouchableOpacity>
+
+            <View style={{ display: 'flex', alignItems: 'center', top: '20' }}>
+
+                <Image style={{ height: 100, width: 100, borderRadius: 50, }} source={require('../assets/img 1.jpeg')} />
+                <View style={{ display: 'flex', flexDirection: 'row', gap: 4, marginTop: 15, borderWidth: 2, borderColor: '#626263', borderRadius: 10, width: 145, padding: 7 }}>
+                    <FontAwesome name='edit' size={25} color={'#7c6537'} />
+                    <Text style={{ fontSize: 15, color: '#adaeaf' }}> Change avatar</Text>
                 </View>
 
             </View>
-           
-            <TextInput style={styles.input}
-                mode="flat"
-                label={'Email'}
-                placeholder='Umutonigisele12@gmail.com' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
+            <KeyboardAvoidingView behavior='position'>
+                <TextInput style={styles.input}
+                    mode="flat"
+                    label={'Email'}
+                    placeholder='Umutonigisele12@gmail.com' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
+                />
+                <TextInput style={styles.input}
+                    secureTextEntry
+                    mode="flat"
+                    label={'Username'}
+                    placeholder='Ugisele' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'account-outline'} color='#7c6537' />}
+                />
+                <TextInput style={styles.input}
+                    secureTextEntry
+                    mode="flat"
+                    label={'password'}
+                    placeholder='Password' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
+                />
+                <TextInput style={styles.input}
+                    secureTextEntry
+                    mode="flat"
+                    label={'Phone'}
+                    placeholder='Phone' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'phone'} color='#7c6537' />}
+                />
+                <TextInput style={styles.input}
+                    secureTextEntry
+                    mode="flat"
+                    label={'Gender'}
+                    placeholder='Gender' placeholderTextColor={'#adaeaf'}
+                    right={<TextInput.Icon icon={'heart-outline'} color='#7c6537' />}
+                />
+                <TouchableOpacity style={{ marginTop: 30, marginBottom: 30, }}>
 
-            />
+                    <Button title={'Save Changes'} />
 
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Username'}
-                placeholder='Ugisele' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'account-outline'} color='#7c6537' />}
+                </TouchableOpacity>
+
+            </KeyboardAvoidingView>
 
 
-            />
-             <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'password'}
-                placeholder='Password' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
-
-            />
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Phone'}
-                placeholder='Phone' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'phone'} color='#7c6537' />}
-
-            />
-            
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Gender'}
-                placeholder='Gender' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'heart-outline'} color='#7c6537' />}
-
-            /> 
-            <TouchableOpacity style={{marginTop:70,}}>
-
-            <Button title={'Save Changes'}/> 
-
-            </TouchableOpacity>
-            
-            <StatusBar style='auto'/>
+            <StatusBar style='auto' />
 
         </View>
     )
@@ -102,7 +114,7 @@ const styles = StyleSheet.create({
 
     },
 
-   
+
     or: {
         fontSize: 15,
         paddingVertical: 15,
@@ -147,5 +159,5 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#ccc'
     },
-  
+
 })

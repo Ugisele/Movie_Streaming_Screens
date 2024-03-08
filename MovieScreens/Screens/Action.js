@@ -1,6 +1,6 @@
 import React , {useEffect ,useState} from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions, ScrollView,Linking } from "react-native";
-import { AntDesign, Feather } from "@expo/vector-icons";
+import { AntDesign, Feather,FontAwesome } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import NewRelease from './fetchApi/NewRelease';
 import TrendingMuvi from "./fetchApi/Trending";
@@ -21,7 +21,7 @@ const openURL = async (url) =>{
 const Action = ({ navigation, route }) => {
     console.log(route);
 
-    const rout = route.params
+    const {movie} = route.params
 
     const [isPlaying,setIsPlaying]= useState([])
 
@@ -39,7 +39,7 @@ const Action = ({ navigation, route }) => {
         };
 
         fetch(
-            `https://api.themoviedb.org/3/movie/${rout.id}/videos?language=en-US`,
+            `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`,
             options
           )
             .then((response) => response.json())
@@ -54,7 +54,7 @@ const Action = ({ navigation, route }) => {
         };
       
     return (
-        <View style={{ display: 'flex', height: height, width: width, }}>
+        <View style={{ display: 'flex', height: height, width: width, paddingVertical:20}}>
               <ScrollView>
             <YoutubePlayer
                         height={220}
@@ -64,7 +64,7 @@ const Action = ({ navigation, route }) => {
                     <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
 
 
-                        {/* <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w500${rout.poster_path}` }} style={styles.image} /> */}
+                        {/* <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }} style={styles.image} /> */}
                         <TouchableOpacity style={{ paddingVertical: 40, display: 'flex', flexDirection: 'row', gap: 10, position: 'absolute' }} >
 
                             {/* <AntDesign name="arrowleft" size={30} color="#d5b445" />
@@ -78,26 +78,25 @@ const Action = ({ navigation, route }) => {
                     <LinearGradient colors={['#222428', '#26282b', '#26282b']} >
 
                         <View style={{ paddingVertical: 1, paddingHorizontal: 10 }}>
-                            <View>
-                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{rout.title}</Text>
-                            <AntDesign name="whatsapp" size={30} color="green" 
+                            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                            <Text style={{ color: '#d5d2d1', fontSize: 24, fontWeight: 'bold',marginBottom:5 }}>{movie.title}</Text>
+                            <FontAwesome name="whatsapp" size={30} color="green" 
                              onPress={()=> { 
                                 Linking.openURL('whatsapp://Send?text=Send')
                              }}
                             />
 
                             </View>
-                            <View style={{flexDirection:'row',gap:10}}>
-                            <Text style={{ color: '#757c7e', fontSize: 14, marginTop: 10,fontStyle:'italic' }}>{rout.overview}</Text>
+                            <View style={{flexDirection:'row',justifyContent:'space-between'}}>
+                            <Text style={{ color: '#757c7e', fontSize: 12, marginTop: 10,fontStyle:'italic' }}>{movie.overview}</Text>
 
-                            <AntDesign name="whatsapp" size={30} color="green" 
+                            <AntDesign name="message1" size={25} color="blue" 
                              onPress={()=> { 
                                 Linking.openURL('whatsapp://Send?text=Send')
                              }}
                             />
                             </View>
                            
-                            
 
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
                                 <TouchableOpacity onPress={() => navigation.navigate('action')}

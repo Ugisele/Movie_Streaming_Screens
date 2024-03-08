@@ -60,7 +60,7 @@ const Home = ({ navigation }) => {
                 <View>
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '600', paddingHorizontal: 10, paddingVertical: 10 }}>Made for you</Text>
 
-                    <NewRelease />
+                    <NewRelease navigation={navigation}/>
 
                 </View>
                 <View>
