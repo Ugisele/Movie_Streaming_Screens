@@ -31,7 +31,7 @@ const Tab = createBottomTabNavigator()
 export default function Navigation (){
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="login">
+            <Stack.Navigator initialRouteName="gestarted">
 
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />

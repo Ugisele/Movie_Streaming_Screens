@@ -6,7 +6,10 @@ import Button from './components/button';
 import { FontAwesome } from '@expo/vector-icons';
 
 
+const
+
 const Profile = ({ navigation }) => {
+
     return (
         <View style={styles.container}>
 

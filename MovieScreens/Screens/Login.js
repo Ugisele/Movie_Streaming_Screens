@@ -111,7 +111,7 @@ const Login = ({ navigation }) => {
                                 label={'password'}
                                 placeholder='*********' placeholderTextColor={'#adaeaf'}
                                 IconName2={passwordSecurity ? 'eye-off-outline' : 'eye'}
-                                Icon={}
+                                // Icon={}
                                 />
 
 
