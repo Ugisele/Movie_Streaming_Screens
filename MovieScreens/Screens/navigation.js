@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather } from '@expo/vector-icons'
 import { Icon } from "react-native-elements";
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
 import FirstScreen from "./firstScreen";
@@ -26,7 +27,8 @@ import Profile from "./Profile";
 
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator();
+const Drawer = createDrawerNavigator();
 
 export default function Navigation (){
     return (
@@ -75,3 +77,14 @@ export const BottomTabNav = () => {
         </Tab.Navigator>
    )
 }
+
+export const MyDrawer = () => {
+    return (
+      <Drawer.Navigator>
+        <Drawer.Screen name="home" component={Home} />
+        <Drawer.Screen name="search" component={Search} />
+        <Drawer.Screen name="list" component={List} />
+        <Drawer.Screen name="profile" component={Profile} />
+      </Drawer.Navigator>
+    );
+  }

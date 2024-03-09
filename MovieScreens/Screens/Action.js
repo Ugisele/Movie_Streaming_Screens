@@ -38,10 +38,7 @@ const Action = ({ navigation, route }) => {
             }
         };
 
-        fetch(
-            `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`,
-            options
-          )
+        fetch( `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=en-US`, options)
             .then((response) => response.json())
             .then((response) => {
               if (response.results && response.results.length > 0) {
@@ -63,15 +60,10 @@ const Action = ({ navigation, route }) => {
 
                     <View style={{ display: 'flex', flexDirection: 'row', gap: 10 }}>
 
-
                         {/* <ImageBackground source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }} style={styles.image} /> */}
                         <TouchableOpacity style={{ paddingVertical: 40, display: 'flex', flexDirection: 'row', gap: 10, position: 'absolute' }} >
-
                             {/* <AntDesign name="arrowleft" size={30} color="#d5b445" />
                             <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold', }}>Action</Text> */}
-
-                            
-
                         </TouchableOpacity>
 
                     </View>
@@ -97,19 +89,17 @@ const Action = ({ navigation, route }) => {
                             />
                             </View>
                            
-
                             <View style={{ paddingVertical: 20, flexDirection: 'row', gap: 30 }}>
                                 <TouchableOpacity onPress={() => navigation.navigate('action')}
                                     style={{ paddingVertical: 10, backgroundColor: '#fdd130', flexDirection: 'row', alignItems: 'center', gap: 8, width: 170, padding: 6, borderRadius: 10 }}>
                                     <Feather name="play" size={25} />
                                     <Text style={{ fontSize: 18 }}>Play</Text>
-
                                 </TouchableOpacity>
+
                                 <TouchableOpacity 
                                     style={{ paddingVertical: 10, backgroundColor: '#434549', flexDirection: 'row', alignItems: 'center', gap: 8, width: 170, padding: 6, borderRadius: 10 }}>
                                     <Feather name="plus" size={25} color={'#9e904f'} />
                                     <Text style={{ fontSize: 18, color: '#d5d2d1', }}>My List</Text>
-
                                 </TouchableOpacity>
 
                             </View>
