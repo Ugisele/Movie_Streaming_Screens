@@ -30,17 +30,16 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
 
-export default function Navigation (){
+export default function Navigation() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="profile">
-
+            <Stack.Navigator initialRouteName="BottomTabNav">
                 <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
                 <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
                 <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
                 <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
                 <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
-                <Stack.Screen name="home" component={BottomTabNav} options={{ headerShown: false }} />
+                <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
                 <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
                 <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
                 <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
@@ -53,38 +52,52 @@ export default function Navigation (){
 export const BottomTabNav = () => {
 
     return (
-        <Tab.Navigator screenOptions={{tabBarLabel:'',tabBarStyle:{backgroundColor:'#26282c'}}} >
-            <Tab.Screen
-                name="hometab"
-                component={Home}
-                options={{headerShown:false, tabBarIcon:() =><Icon name="home-outline" type="material-community" size={30} color={'#dbdddd'}/>}}
-            />
-            <Tab.Screen
-                name="searchtab"
-                component={Search}
-                options={{headerShown:false, tabBarIcon:() =><Icon name="magnify" type="material-community" size={30} color={'#dbdddd'}/>}}
-            />
-            <Tab.Screen
-                name="listtab"
-                component={List}
-                options={{headerShown:false, tabBarIcon:() =><Icon name="folder-outline" type="material-community" size={30} color={'#dbdddd'}/>}} 
-            />
-            <Tab.Screen
-                name="profiletab"
-                component={Profile}
-                options={{headerShown:false,tabBarIcon:() =><Icon name="account-outline" type="material-community" size={30} color={'#dbdddd'}/>}}               
-            />
+        <Tab.Navigator screenOptions={({ route }) => ({
+          
+            tabBarIcon: ({ focused, color, size }) => {
+                let iconName;
+                if (route.name === "home") {
+                    iconName = focused ? 'home' : 'home-outline';
+                } else if (route.name === "search") {
+                    iconName = focused ? 'magnify' : 'magnify';
+                }
+                else if (route.name === "list") {
+                    iconName = focused ? 'folder' : 'folder-outline';
+                }
+                else if (route.name === "profile") {
+                    iconName = focused ? 'account' : 'account-outline';
+                }
+                return <Icon name={iconName} type="material-community" size={30} color={color} />;
+            },
+            tabBarActiveTintColor: '#c2a749',
+            tabBarInactiveTintColor: '#dbdddd',
+            tabBarShowLabel: false,
+            tabBarShowIcon: true,
+            tabBarStyle: {
+             backgroundColor: '#26282c'
+            },
+            options:{ headerShown: false }
+            // tabBarOnPress: () => {
+            //     console.log('tabBarOnPress');
+            // }
+        })}
+        >
+            <Tab.Screen name="home" component={Home} options={{ headerShown: false }}/>
+            <Tab.Screen name="search" component={Search} options={{ headerShown: false }}/>
+            <Tab.Screen name="list" component={List} options={{ headerShown: false }}/>
+            <Tab.Screen name="profile" component={Profile} options={{ headerShown: false }}/>
         </Tab.Navigator>
-   )
-}
+    )
+} 
 
-export const MyDrawer = () => {
+export const DrawerNav = () => {
     return (
-      <Drawer.Navigator>
-        <Drawer.Screen name="home" component={Home} />
-        <Drawer.Screen name="search" component={Search} />
-        <Drawer.Screen name="list" component={List} />
-        <Drawer.Screen name="profile" component={Profile} />
-      </Drawer.Navigator>
+        <Drawer.Navigator>
+            <Drawer.Screen name="home" component={Home} />
+            <Drawer.Screen name="search" component={Search} />
+            <Drawer.Screen name="list" component={List} />
+            <Drawer.Screen name="profile" component={Profile} />
+        </Drawer.Navigator>
     );
-  }
+}
+ 
