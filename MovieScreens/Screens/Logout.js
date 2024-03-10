@@ -6,7 +6,7 @@ import Button from './components/button';
 import { FontAwesome } from '@expo/vector-icons';
 
 
-const Profile = ({ navigation }) => {
+const Logout = ({ navigation }) => {
     return (
         <View style={styles.container}>
 
@@ -21,23 +21,20 @@ const Profile = ({ navigation }) => {
             </View>           
             <TextInput style={styles.input}
                 mode="flat"
-                label={'Email'}
-                placeholder='Umutonigisele12@gmail.com' placeholderTextColor={'#adaeaf'}
+                placeholder='Inbox' placeholderTextColor={'#adaeaf'}
                 left={<TextInput.Icon icon={'email-outline'} color='#7c6537' />}
 
             />
             <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"
-                label={'Username'}
-                placeholder='Ugisele' placeholderTextColor={'#adaeaf'}
+                placeholder='Account settings' placeholderTextColor={'#adaeaf'}
                 left={<TextInput.Icon icon={'account-outline'} color='#7c6537' />}
 
             />
              <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"
-                label={'password'}
                 placeholder='Password' placeholderTextColor={'#adaeaf'}
                 left={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
@@ -45,28 +42,14 @@ const Profile = ({ navigation }) => {
              <TextInput style={styles.input}
                 secureTextEntry
                 mode="flat"
-                label={'Change Password'}
                 placeholder='*********' placeholderTextColor={'#adaeaf'}
                 left={<TextInput.Icon icon={'lock-outline'} color='#7c6537' />}
 
             />
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Phone'}
-                placeholder='Phone' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'phone'} color='#7c6537' />}
-
-            />
-            <TextInput style={styles.input}
-                secureTextEntry
-                mode="flat"
-                label={'Gender'}
-                placeholder='Gender' placeholderTextColor={'#adaeaf'}
-                right={<TextInput.Icon icon={'heart-outline'} color='#7c6537' />}
-
-            /> 
-            <TouchableOpacity style={{backgroundColor:'transparent',borderWidth:1,marginTop:70,padding:10, borderRadius:20}}>
+            <Text style={{color:'#adaeaf',fontSize:15,marginTop:10,}}>Terms and conditions</Text>
+            <Text style={{color:'#adaeaf',fontSize:15,marginTop:15,}}>Privacy & policy</Text>
+          
+            <TouchableOpacity style={{backgroundColor:'transparent',borderWidth:1,marginTop:60,padding:10, borderRadius:20}}>
 
                 <Text style={{fontSize:20,fontWeight:'600', textAlign:'center',color: '#af6259'}}>Logout</Text>
 
@@ -77,7 +60,7 @@ const Profile = ({ navigation }) => {
         </View>
     )
 }
-export default Profile;
+export default Logout;
 
 const styles = StyleSheet.create({
     container: {
@@ -90,7 +73,7 @@ const styles = StyleSheet.create({
     },
 
     input: {
-        borderWidth: 1,
+        
         borderRadius: 10,
         backgroundColor: 'transparent',
         marginBottom: 10,
@@ -101,51 +84,5 @@ const styles = StyleSheet.create({
         color: '#98999c'
 
     },
-
    
-    or: {
-        fontSize: 15,
-        paddingVertical: 15,
-        textAlign: 'center',
-        color: '#98999c'
-    },
-    orview1: {
-        flexDirection: 'row',
-        gap: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        width: "100%",
-        height: 50,
-        backgroundColor: '#ccc',
-        // position:'absolute'
-        borderRadius: 10,
-        paddingVertical: 10
-
-
-    },
-    orview1text: {
-        fontSize: 15,
-        color: '#111111'
-    },
-    orview2: {
-        flexDirection: 'row',
-        gap: 5,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingVertical: 10,
-        width: "100%",
-        height: 50,
-        backgroundColor: '#111111',
-        borderRadius: 10,
-        // position:'absolute'
-        top: 20,
-        marginBottom: 30
-
-    },
-    orview2text: {
-        fontSize: 15,
-        color: '#ccc'
-    },
-  
 })

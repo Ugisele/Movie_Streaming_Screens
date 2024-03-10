@@ -23,12 +23,11 @@ import { View, Text, Image, ImageBackground, TouchableOpacity, Pressable } from 
 
 const Popular = ({ image, title,navigation }) => {
     return (
-        <View>
+        <View style={{paddingHorizontal:4}}>
             <Pressable >
-
-            <Text style={{ position: 'absolute', top: '1%', right: '1%', backgroundColor: '#ffce2d', fontWeight: 'bold' }}>{title}</Text>
-            <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: 370, height: 600, marginBottom: 10 }} />
             
+            <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}`}} style={{ width: 380, height: 600, marginBottom: 10,position:'relative'}} />
+           {/* <Text style={{ position: 'absolute',right: 5,top: 1, backgroundColor: '#ffce2d', fontWeight: 'bold' }}>{title}</Text> */}
 
             </Pressable>
             {/* <Image source={{ uri: `https://image.tmdb.org/t/p/w500${image}` }} style={{ width: '90%', height: 220, borderRadius: 10, marginBottom: 10, }} /> */}

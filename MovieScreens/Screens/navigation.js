@@ -5,6 +5,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather } from '@expo/vector-icons'
 import { Icon } from "react-native-elements";
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs'
 
 
 import FirstScreen from "./firstScreen";
@@ -24,28 +25,31 @@ import Gallery from "./components/GalleryComp";
 import Trending from "./components/trendingComp";
 import Popular from "./components/PopularComp";
 import Profile from "./Profile";
+import Logout from "./Logout"
+import PopularMuvi from "./fetchApi/Popular";
 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
+const TopNav = createMaterialTopTabNavigator();
 
 export default function Navigation() {
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="BottomTabNav">
-                <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
-                <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
-                <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
-                <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
-                <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
-                <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
-                <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
-                <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
-                <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
-                <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        // <NavigationContainer>
+        <Stack.Navigator initialRouteName="BottomTabNav">
+            <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
+            <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
+            <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
+            <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
+            <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
+            <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
+            <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
+            <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
+            <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
+            <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} />
+        </Stack.Navigator>
+        // </NavigationContainer>
     );
 };
 
@@ -53,7 +57,7 @@ export const BottomTabNav = () => {
 
     return (
         <Tab.Navigator screenOptions={({ route }) => ({
-          
+
             tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
                 if (route.name === "home") {
@@ -74,30 +78,44 @@ export const BottomTabNav = () => {
             tabBarShowLabel: false,
             tabBarShowIcon: true,
             tabBarStyle: {
-             backgroundColor: '#26282c'
+                backgroundColor: '#26282c'
             },
-            options:{ headerShown: false }
+            options: { headerShown: false }
             // tabBarOnPress: () => {
             //     console.log('tabBarOnPress');
             // }
         })}
         >
-            <Tab.Screen name="home" component={Home} options={{ headerShown: false }}/>
-            <Tab.Screen name="search" component={Search} options={{ headerShown: false }}/>
-            <Tab.Screen name="list" component={List} options={{ headerShown: false }}/>
-            <Tab.Screen name="profile" component={Profile} options={{ headerShown: false }}/>
+            <Tab.Screen name="home" component={Home} options={{ headerShown: false }} />
+            <Tab.Screen name="search" component={Search} options={{ headerShown: false }} />
+            <Tab.Screen name="list" component={List} options={{ headerShown: false }} />
+            <Tab.Screen name="profilr" component={Profile} options={{ headerShown: false }} />
         </Tab.Navigator>
     )
-} 
+}
 
 export const DrawerNav = () => {
     return (
-        <Drawer.Navigator>
-            <Drawer.Screen name="home" component={Home} />
-            <Drawer.Screen name="search" component={Search} />
-            <Drawer.Screen name="list" component={List} />
-            <Drawer.Screen name="profile" component={Profile} />
-        </Drawer.Navigator>
+        <NavigationContainer>
+            <Drawer.Navigator>
+                {/* <Drawer.Screen name="navigation" component={Navigation} options={{ headerShown: false }} /> */}
+                <Drawer.Screen name="find more here" component={Home} />
+                <Drawer.Screen name="gallery" component={NewRelease} options={{ headerShown: false }} />
+                <Drawer.Screen name="popular" component={PopularMuvi} options={{ headerShown: false }} />
+                <Drawer.Screen name="profile" component={Profile} options={{ headerShown: false }} />
+                <Drawer.Screen name="logout" component={Logout} options={{ headerShown: false }} />
+            </Drawer.Navigator>
+        </NavigationContainer>
     );
 }
- 
+export const TopNavigation = () => {
+
+    return (
+        <TopNav.Navigator>
+            <TopNav.Screen name="popular" component={DrawerNav} />
+            <TopNav.Screen name='followers' component={Profile} />
+            <TopNav.Screen name='search' component={Search} />
+        </TopNav.Navigator>
+
+    )
+}

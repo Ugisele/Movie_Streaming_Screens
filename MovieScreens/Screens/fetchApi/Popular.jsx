@@ -26,8 +26,8 @@ export default function PopularMuvi({navigation}) {
         <View>
 
             <FlatList
-                horizontal={true}
-                showsVerticalScrollIndicator={true}
+                horizontal={false}
+                // showsVerticalScrollIndicator={true}
                 contentContainerStyle={{ display: 'flex', flexDirection: 'column', gap: 10, paddingVertical: 10 }}
                 data={img}
                 keyExtractor={item => {

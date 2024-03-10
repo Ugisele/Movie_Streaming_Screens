@@ -1,5 +1,5 @@
 import React from "react";
-import Navigation from "./Screens/navigation";
+import {Navigation,DrawerNav} from "./Screens/navigation";
 
 
 import Home from "./Screens/Home";
@@ -16,6 +16,7 @@ import Signin from "./Screens/Signin";
 import Login from "./Screens/Login";
 import Profile from "./Screens/Profile";
 import { ThemeProviderIntoLightMode } from "./Screens/context/themeContex";
+
 
 
 
@@ -41,8 +42,14 @@ export default function App() {
       {/* < Home /> */}
 
       <ThemeProviderIntoLightMode>
-        
-      <Navigation /> 
+
+      {/* <Navigation /> 
+
+       */}
+
+       
+
+<DrawerNav/>
 
       </ThemeProviderIntoLightMode>
 
