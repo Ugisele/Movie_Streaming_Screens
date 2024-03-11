@@ -36,20 +36,20 @@ const TopNav = createMaterialTopTabNavigator();
 
 export default function Navigation() {
     return (
-        // <NavigationContainer>
-        <Stack.Navigator initialRouteName="BottomTabNav">
-            <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
-            <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
-            <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
-            <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
-            <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
-            <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
-            <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
-            <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} />
-            <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} />
-            <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} />
-        </Stack.Navigator>
-        // </NavigationContainer>
+    
+            <Stack.Navigator initialRouteName="getstarted">
+                <Stack.Screen name="first" component={FirstScreen} options={{ headerShown: false }} />
+                <Stack.Screen name="getstarted" component={Started} options={{ headerShown: false }} />
+                <Stack.Screen name="welcome" component={Welcome} options={{ headerShown: false }} />
+                <Stack.Screen name="login" component={Login} options={{ headerShown: false }} />
+                <Stack.Screen name="register" component={Registration} options={{ headerShown: false }} />
+                <Stack.Screen name="BottomTabNav" component={BottomTabNav} options={{ headerShown: false }} />
+                <Stack.Screen name="action" component={Action} options={{ headerShown: false }} />
+                {/* <Stack.Screen name="gallery" component={Gallery} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name="popular" component={Popular} options={{ headerShown: false }} /> */}
+                {/* <Stack.Screen name="trending" component={Trending} options={{ headerShown: false }} /> */}
+            </Stack.Navigator>
+        
     );
 };
 
@@ -80,10 +80,10 @@ export const BottomTabNav = () => {
             tabBarStyle: {
                 backgroundColor: '#26282c'
             },
-            options: { headerShown: false }
-            // tabBarOnPress: () => {
-            //     console.log('tabBarOnPress');
-            // }
+            options: { headerShown: false },
+            tabBarOnPress: () => {
+                console.log('tabBarOnPress');
+            }
         })}
         >
             <Tab.Screen name="home" component={Home} options={{ headerShown: false }} />
@@ -96,26 +96,26 @@ export const BottomTabNav = () => {
 
 export const DrawerNav = () => {
     return (
-        <NavigationContainer>
-            <Drawer.Navigator>
-                {/* <Drawer.Screen name="navigation" component={Navigation} options={{ headerShown: false }} /> */}
-                <Drawer.Screen name="find more here" component={Home} />
-                <Drawer.Screen name="gallery" component={NewRelease} options={{ headerShown: false }} />
-                <Drawer.Screen name="popular" component={PopularMuvi} options={{ headerShown: false }} />
-                <Drawer.Screen name="profile" component={Profile} options={{ headerShown: false }} />
-                <Drawer.Screen name="logout" component={Logout} options={{ headerShown: false }} />
-            </Drawer.Navigator>
-        </NavigationContainer>
+
+        <Drawer.Navigator>
+            <Drawer.Screen name="navigation" component={Navigation} options={{ headerShown: false }} />
+            <Drawer.Screen name="find more here" component={Home} options={{ headerShown: false }} />
+            <Drawer.Screen name="gallery" component={NewRelease} options={{ headerShown: false }} />
+            <Drawer.Screen name="popular" component={PopularMuvi} options={{ headerShown: false }} />
+            <Drawer.Screen name="profile" component={Profile} options={{ headerShown: false }} />
+            <Drawer.Screen name="logout" component={Logout} options={{ headerShown: false }} />
+        </Drawer.Navigator>
+
     );
 }
-export const TopNavigation = () => {
+// export const TopNavigation = () => {
 
-    return (
-        <TopNav.Navigator>
-            <TopNav.Screen name="popular" component={DrawerNav} />
-            <TopNav.Screen name='followers' component={Profile} />
-            <TopNav.Screen name='search' component={Search} />
-        </TopNav.Navigator>
+//     return (
+//         <TopNav.Navigator>
+//             <TopNav.Screen name="popular" component={DrawerNav} />
+//             <TopNav.Screen name='followers' component={Profile} />
+//             <TopNav.Screen name='search' component={Search} />
+//         </TopNav.Navigator>
 
-    )
-}
+//     )
+// }

@@ -16,6 +16,7 @@ import Signin from "./Screens/Signin";
 import Login from "./Screens/Login";
 import Profile from "./Screens/Profile";
 import { ThemeProviderIntoLightMode } from "./Screens/context/themeContex";
+import { NavigationContainer } from "@react-navigation/native";
 
 
 
@@ -49,9 +50,15 @@ export default function App() {
 
        
 
-<DrawerNav/>
+{/* <DrawerNav/> */}
 
       </ThemeProviderIntoLightMode>
+      
+    <NavigationContainer>
+
+      <Navigation/>
+
+    </NavigationContainer>
 
        
 

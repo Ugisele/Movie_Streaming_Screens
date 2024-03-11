@@ -81,9 +81,7 @@ const Login = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <FlashMessage
-            position='top'
-            
-            
+            position='top'    
             />
 
             <ImageBackground source={require('../assets/login.jpg')}
@@ -105,19 +103,6 @@ const Login = ({ navigation }) => {
                             <View style={styles.Login}>
 
                                 <Text style={styles.text}>Login</Text>
-
-                                <TextInputComponent
-                             
-                                secureTextEntry={passwordSecurity}
-                                mode="flat"
-                                textColor='#e1e3e6'
-                                value={password}
-                                onChangeText={setPassword}
-                                label={'password'}
-                                placeholder='*********' placeholderTextColor={'#adaeaf'}
-                                IconName2={passwordSecurity ? 'eye-off-outline' : 'eye'}
-                                // Icon={}
-                                />
 
 
                                 <TextInput style={styles.input}
