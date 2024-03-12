@@ -43,23 +43,17 @@ export default function App() {
       {/* < Home /> */}
 
       <ThemeProviderIntoLightMode>
-
-      {/* <Navigation /> 
-
-       */}
-
-       
-
-{/* <DrawerNav/> */}
-
-      </ThemeProviderIntoLightMode>
       
     <NavigationContainer>
 
-      <Navigation/>
+      {/* <Navigation /> */}
+
+      <DrawerNav />
+
 
     </NavigationContainer>
 
+    </ThemeProviderIntoLightMode>
        
 
        

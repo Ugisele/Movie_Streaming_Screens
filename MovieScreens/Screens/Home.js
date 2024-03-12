@@ -21,27 +21,13 @@ const Home = ({ navigation }) => {
                         <FontAwesome name="bookmark-o" style={styles.logicon} size={23} />
                     </TouchableOpacity>
                 </View>
-                <View>
-                    <ScrollView horizontal={true} showsHorizontalScrollIndicator={true} showsHorizontalScrollIndicatorStyle={{ marginBottom: 10, color: 'white' }}>
-                        <View style={styles.scrollViewContent}  >
-                            <Text style={styles.text1}>Features</Text>
-                            <Text style={styles.text}>Series</Text>
-                            <Text style={styles.text}>Films</Text>
-                            <Text style={styles.text}>Origins</Text>
-                            <Text style={styles.text}>Series</Text>
-                            <Text style={styles.text}>Films</Text>
-                            <Text style={styles.text}>Features</Text>
-                            <Text style={styles.text}>Series</Text>
-                            <Text style={styles.text}>Films</Text>
-                        </View>
-                    </ScrollView>
-                </View>
+              
                 <View>
                     <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={{
                         display
                             : 'flex', flexDirection: 'row', gap: 10, paddingHorizontal: 10, paddingVertical: 10
                     }}>
-                        <Text style={styles.nav}>Popular movies</Text>
+                        <Text style={styles.nav}></Text>
                         <Text style={styles.nav}>Rated</Text>
                         <Text style={styles.nav}>Marvel</Text>
                         <Text style={styles.nav}>Netflix</Text>
