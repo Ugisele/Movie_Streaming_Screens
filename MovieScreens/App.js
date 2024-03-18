@@ -16,13 +16,7 @@ import Signin from "./Screens/Signin";
 import Login from "./Screens/Login";
 import Profile from "./Screens/Profile";
 import { ThemeProviderIntoLightMode } from "./Screens/context/themeContex";
-import { NavigationContainer } from "@react-navigation/native";
-
-
-
-
-
-
+import { NavigationContainer } from "@react-navigation/native"
 
 export default function App() {
   return (

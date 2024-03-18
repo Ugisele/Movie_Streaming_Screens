@@ -45,9 +45,6 @@ export default function NewRelease({ navigation }) {
               <Pressable press={() =>
                 navigation.navigate('action', {movie:item})}>
                 <Gallery image={item.poster_path} rate={item.original_title} />
-                
-
-
               </Pressable>
               
             </>

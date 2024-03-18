@@ -13,7 +13,6 @@ const Card = ({titleMov,imageMov,overView,navigation,onPress}) => {
              </View>
          </Pressable>
      )
-
 }
  export default Card;
  
