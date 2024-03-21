@@ -4,7 +4,6 @@ import Trending from '../components/trendingComp';
 
 
 
-
 export default function TrendingMuvi({navigation}) {
     const options = {
         method: 'GET',
