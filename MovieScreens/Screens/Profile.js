@@ -13,8 +13,7 @@ const height = Dimensions.get("window").height
 
 const Profile = ({ navigation }) => {
 
-    const { light, IntoLightMode } =
-        useContext(changeintoLightMode)
+    const { light, IntoLightMode } = useContext(changeintoLightMode)
 
     return (
         <View style={{

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, View, Text, TouchableOpacity, Pressable } from 'react-native';
+import { FlatList, View, Pressable } from 'react-native';
 import Gallery from '../components/GalleryComp';
 import axios from 'axios';
 import Action from '../Action';

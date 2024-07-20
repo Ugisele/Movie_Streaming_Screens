@@ -14,5 +14,4 @@ const Card = ({titleMov,imageMov,overView,navigation,onPress}) => {
          </Pressable>
      )
 }
- export default Card;
- 
+export default Card; 

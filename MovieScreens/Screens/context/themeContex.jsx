@@ -4,7 +4,6 @@ import React,{createContext,useState} from 'react'
 
 export const changeintoLightMode =createContext();
 
-
 export const ThemeProviderIntoLightMode =({children}) => {
 
     const [light,setLight] = useState(false)
